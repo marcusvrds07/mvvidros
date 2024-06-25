@@ -270,10 +270,9 @@ footer .footer-content img {
   width: 20px;
 }
 footer .final-footer {
-  width: 100%;
   padding: 1px;
   text-align: center;
-  background-color: rgb(26, 26, 135);
+  background-color: rgb(26, 26, 135); 
 }
 .final-footer p {
   color: #f6f1f1; 
