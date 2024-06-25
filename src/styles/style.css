@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  
 }
 
 nav {
@@ -252,6 +251,39 @@ nav {
   color: rgb(38, 38, 151);
 }
 
+/* Estilo do Footer */
+
+footer {
+  margin-top: 100px;
+}
+footer .footer-content {
+  width: 100%;
+  padding-top: 40px;
+  background-color: rgb(38, 38, 151);
+}
+footer .footer-content li {
+  display: inline-block;
+  width: 40px;
+}
+footer .footer-content img {
+  width: 20px;
+}
+footer .final-footer {
+  width: 100%;
+  padding: 1px;
+  text-align: center;
+  background-color: rgb(26, 26, 135);
+}
+.final-footer p {
+  color: #f6f1f1; 
+  font-weight: 100;
+  font-size: 12px;
+}
+.final-footer a {
+  text-decoration: none;
+  color: #f6f1f1;
+}
+  
 @keyframes grow {
   from {
       transform: scale(0.7);
