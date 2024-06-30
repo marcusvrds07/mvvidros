@@ -245,13 +245,6 @@ footer .final-footer {
   font-size: 18px;
   color: #f6f1f1;
 }
-.line {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 2px;
-  border-radius: 5px;
-  width: 50px;
-  margin-top: -5px;
-}
 .contentf ul,a {
   list-style-type: none;
   text-decoration: none;
@@ -271,13 +264,10 @@ footer .final-footer {
   color: rgba(0, 0, 0, 0.5);
 }
 .products a {
-  margin-left: -0.6rem;
+  margin-left: -0.3rem;
 }
 .contact ul {
-  margin-left: -4.35rem;
-}
-.contact ul {
-  margin-left: -5.85em;
+  margin-left: -5em;
 }
 .contact li {
   margin-top: 5.5px;
@@ -410,6 +400,13 @@ footer .final-footer {
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
   padding-top: 10px;
+}
+.line {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 2px;
+  border-radius: 5px;
+  width: 50px;
+  margin-top: -5px;
 }
 .about .line {
   margin: 0 auto;
