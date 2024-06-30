@@ -201,7 +201,6 @@ nav {
 }
 
 
-
 .dark-overlay {
   position: absolute;
   top: 0;
@@ -220,6 +219,14 @@ nav {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+#t1 {
+  position: relative;
+  top: -90px;
+  color: #e7dfdf;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
 }
 .experience-text {
   margin-top: 100px;
@@ -266,12 +273,9 @@ nav {
 
 /* Estilo do Footer */
 
-footer {
-  margin-top: 185px;
-}
 footer .footer-content {
   width: 100%;
-  padding-top: 40px;
+  font-size: 12px;
   background-color: rgb(38, 38, 151);
 }
 footer .footer-content li {
@@ -293,7 +297,7 @@ footer .final-footer {
 .final-footer p {
   color: #f6f1f1; 
   font-weight: 100;
-  font-size: 12px;
+  font-size: 10px;
 }
 .final-footer a {
   text-decoration: none;
@@ -342,10 +346,12 @@ footer .final-footer {
 .products li a {
   color: #fff;
   text-align: center;
+  z-index: 10;
 }
-.products li a:hover {
+.products li a:hover, .contact li a:hover {
   color: black;
 }
+
 .contact ul {
   margin-left: -4.45em;
 }
@@ -358,6 +364,20 @@ footer .final-footer {
   top: -1px;
   color: #fff;
 }
+
+.img img{
+  position: relative;
+  top: 3px;
+}
+
+.svgfooter {
+  position: relative;
+  top: 0.8rem;
+}
+
+/* CONTEUDO DA MAIN */
+
+
   
 @keyframes grow {
   from {

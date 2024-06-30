@@ -62,16 +62,13 @@
     }
   }
 
-  @media (max-width: 865px) {
+  @media (max-width: 885px) {
     .experience-text h1 {
         font-size: 40px;
     }
   }
 
-  @media (max-width: 700px) {
-    button {
-        display: none;
-    }
+  @media (max-width: 710px) {
     .experience-text h1 {
         font-size: 30px;
     }
@@ -79,7 +76,7 @@
         font-weight: 400;
     }
   }
-  @media (max-width: 517px) {
+  @media (max-width: 537px) {
     .experience-text h1 {
         font-size: 20px;
     }
@@ -102,5 +99,8 @@
     }
     .contact ul li img {
         width: 12px;
+    }
+    .products a {
+        margin-left: -0.6rem;
     }
   }
