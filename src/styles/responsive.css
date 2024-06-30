@@ -60,6 +60,23 @@
         display: flex;
         flex-direction: column;
     }
+    .experience-item {
+        height: 260px;
+    }
+    .aboutinfo {
+        grid-template-columns: 10% 1fr 10%;
+        grid-template-rows: 20% 5% 75%;
+        grid-template-areas: ". intro1 ."
+                             ". . ."
+                             ". texti .";
+    }
+    .intro-text p {
+        font-size: 14px;
+    }
+    .intro h3 {
+        font-size: 16px;
+    }
+    
   }
 
   @media (max-width: 885px) {
@@ -76,17 +93,14 @@
         font-weight: 400;
     }
   }
-  @media (max-width: 537px) {
-    .experience-text h1 {
-        font-size: 20px;
-    }
-  }
+
   @media (max-width: 807px) {
     .contentf {
-        grid-template-columns: 5% 0.5fr 5% 0.5fr 5% 1fr 5%;
+        grid-template-columns: 5% 0.5fr 5% 0.5fr 5% 0.9fr 5%;
         grid-template-areas: ". company1 . products1 . contact1 .";
       }
   }
+
   @media (max-width: 541px) {
     .contentf h1 {
         font-size: 12px;
@@ -100,7 +114,10 @@
     .contact ul li img {
         width: 12px;
     }
-    .products a {
-        margin-left: -0.6rem;
+    .contact ul {
+        margin-left: -4.35rem;
+    }
+    .experience-text h1 {
+        font-size: 20px;
     }
   }
