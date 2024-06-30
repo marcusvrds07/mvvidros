@@ -84,3 +84,23 @@
         font-size: 20px;
     }
   }
+  @media (max-width: 807px) {
+    .contentf {
+        grid-template-columns: 5% 0.5fr 5% 0.5fr 5% 1fr 5%;
+        grid-template-areas: ". company1 . products1 . contact1 .";
+      }
+  }
+  @media (max-width: 541px) {
+    .contentf h1 {
+        font-size: 12px;
+    }
+    .contentf li, p{
+        font-size: 12px;
+    }
+    .contact li {
+        font-size: 12px;
+    }
+    .contact ul li img {
+        width: 12px;
+    }
+  }

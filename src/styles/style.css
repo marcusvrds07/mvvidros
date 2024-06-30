@@ -75,6 +75,7 @@ nav {
 
 .dropbtn::after {
   display: none;
+  
 }
 
 .nav-links .dropdown-content {
@@ -93,7 +94,7 @@ nav {
 
 #space {
   margin-top: 20px;
-}
+} 
 
 .dropdown-content a:hover::after {
   display: none;
@@ -105,6 +106,17 @@ nav {
 
 .nav-links .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.nav-links .dropdown:hover .dropdown-content,
+.nav-links .dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+.nav-links .dropdown-content a:focus {
+  outline: none;
+  background-color: rgb(38, 38, 151);
+  color: white;
 }
 
 
@@ -264,7 +276,11 @@ footer .footer-content {
 }
 footer .footer-content li {
   display: inline-block;
-  width: 40px;
+  margin-left: 30px;
+}
+footer .footer-content .social-media ul {
+  text-align: center;
+  margin-left: -4rem;
 }
 footer .footer-content img {
   width: 20px;
@@ -282,6 +298,65 @@ footer .final-footer {
 .final-footer a {
   text-decoration: none;
   color: #f6f1f1;
+}
+
+.company {
+  grid-area: company1;
+}
+.products {
+  grid-area: products1;
+}
+.contact {
+  grid-area: contact1;
+}
+
+.contentf {
+  display: grid;
+  width: 100%;
+  color: #fff;
+  grid-template-columns: 10% 0.5fr 5% 0.3fr 5% 0.4fr 10%;
+  grid-template-rows: 100%;
+  grid-template-areas: ". company1 . products1 . contact1 .";
+}
+.contentf h1 {
+  font-size: 16px;
+  color: #f6f1f1;
+}
+.contentf .line {
+  background-color: rgb(74, 71, 71);
+  height: 2px;
+  border-radius: 5px;
+  width: 50px;
+  margin-top: -5px;
+}
+.contentf ul,a {
+  list-style-type: none;
+  text-decoration: none;
+}
+.products ul li {
+  display: flex;
+  margin-left: -2.5em;
+  margin-top: 5px;
+  text-align: justify;
+}
+.products li a {
+  color: #fff;
+  text-align: center;
+}
+.products li a:hover {
+  color: black;
+}
+.contact ul {
+  margin-left: -4.45em;
+}
+.contact li {
+  margin-top: 5.5px;
+}
+.contact ul li a{
+  position: relative;
+  margin-left: 10px;
+  top: -1px;
+  color: #fff;
 }
   
 @keyframes grow {
