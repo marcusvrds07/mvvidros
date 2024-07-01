@@ -448,6 +448,55 @@ footer .final-footer {
   color: rgb(24, 23, 23);
   font-weight: bold;
 }
+
+.box-produtos {
+  padding-top: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas: ". produto-1 . produto-2 . produto-3 .";
+}
+
+.produto1 img, .produto2 img, .produto3 img {
+  width: 250px;
+}
+
+.produto1 {
+  width: 250px;
+  grid-area: produto-1;
+}
+
+.produto2 {
+  width: 250px;
+  grid-area: produto-2;
+}
+
+.produto3 {
+  width: 250px;
+  grid-area: produto-3;
+}
+
+.produto1, .produto2, .produto3 {
+  background-color: rgb(38, 38, 151);
+  font-size: 12px;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.produto1:hover, .produto2:hover, .produto3:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+.produto1 img, .produto2 img, .produto3 img {
+  border-radius: 50px 50px 0px 0px;
+  height: 280px;
+}
+.produto1 h1, .produto2 h1, .produto3 h1 {
+  color: #fff;
+}
   
 /* ANIMAÇÃO */
 
