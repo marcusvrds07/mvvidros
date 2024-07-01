@@ -94,10 +94,31 @@
     }
   }
 
-  @media (max-width: 807px) {
+  @media (max-width: 800px) {
     .contentf {
         grid-template-columns: 5% 0.5fr 5% 0.5fr 5% 0.9fr 5%;
         grid-template-areas: ". company1 . products1 . contact1 .";
+      }
+      .box-produtos {
+        display: inline-block;
+        width: 100%;
+        height: 370px;
+        margin-left: -20px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .container::-webkit-scrollbar {
+        display: none;
+    }
+      .produto1:hover, .produto2:hover, .produto3:hover {
+        transform: scale(1.1);
+        box-shadow: none;
+      }
+      .produto1, .produto2, .produto3 {
+        display: inline-block;
+        margin-left: 20px;
       }
   }
 
