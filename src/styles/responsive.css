@@ -97,6 +97,7 @@
   @media (max-width: 800px) {
     .contentf {
         grid-template-columns: 5% 0.5fr 5% 0.5fr 5% 0.9fr 5%;
+        grid-template-rows: 100%;
         grid-template-areas: ". company1 . products1 . contact1 .";
       }
       .box-produtos {
@@ -126,8 +127,9 @@
     .contentf h1 {
         font-size: 14px;
     }
-    .contentf li, p{
-        font-size: 13px;
+    .contentf li a, .contentf p{
+        font-size: 12px;
+        font-weight: 400;
     }
     .contact ul li img {
         width: 12px;
