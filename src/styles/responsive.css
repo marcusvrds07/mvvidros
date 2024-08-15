@@ -12,7 +12,6 @@
         justify-content: space-between;
         align-items: center;
       }
-
       .logo {
         width: 80px;
         display: block;
@@ -139,6 +138,12 @@
     }
     .experience-text h1 {
         font-size: 20px;
+    }
+    .contact h1 {
+        margin-left: 2px;
+    }
+    .final-footer p {
+        font-weight: 400;
     }
   }
   @media (max-width: 400px) {
