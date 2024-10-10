@@ -75,21 +75,27 @@
     .intro h3 {
         font-size: 16px;
     }
+    .experience-text p {
+        font-size: 80%;
+    }
     
   }
 
-  @media (max-width: 885px) {
+  @media (max-width: 915px) {
     .experience-text h1 {
         font-size: 40px;
     }
   }
 
-  @media (max-width: 710px) {
+  @media (max-width: 740px) {
     .experience-text h1 {
         font-size: 30px;
     }
     .experience-text p {
         font-weight: 400;
+    }
+    #t1 {
+        font-size: 100%;
     }
   }
 
@@ -122,7 +128,7 @@
       }
   }
 
-  @media (max-width: 541px) {
+  @media (max-width: 555px) {
     .contentf h1 {
         font-size: 14px;
     }
@@ -145,6 +151,9 @@
     .final-footer p {
         font-weight: 400;
     }
+    .experience-text p {
+        font-size: 70%;
+    }
   }
   @media (max-width: 400px) {
     .contentf h1 {
@@ -155,6 +164,12 @@
     }
     .contact ul li img {
         width: 10px;
+    }
+    .experience-text h1 {
+        font-size: 15px;
+    } 
+    #t1 {
+        font-size: 80%;
     }
   }
   @media (max-width: 341px) {
