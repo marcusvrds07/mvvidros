@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eae8e8;
+    box-sizing: border-box;
+}
+.produto {
+    position: relative;
+    top: 40px;
+}
+
+.produto h1 {
+    position: relative;
+    top: 40px;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(38, 38, 151);;
+}
+
+.produto hr {
+    position: relative;
+    top: 20px;
+    width: 10%;
+    background-color: black;
+    border: none;
+    height: 2px;
+}
+
+.produto p {
+    position: relative;
+    top: 30px;
+    margin: 0 auto;
+    color: rgb(69, 66, 66);
+    text-align: center;
+    width: 70%;
+    line-height: 18px;
+}
