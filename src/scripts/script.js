@@ -75,33 +75,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carrossel de imagens
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
+    // const carousel = document.querySelector('.carousel');
+    // const items = document.querySelectorAll('.carousel-item');
+    // const prevButton = document.querySelector('.prev-button');
+    // const nextButton = document.querySelector('.next-button');
 
-    let index = 0;
+    // let index = 0;
 
-    function showItem(index) {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }
+    // function showItem(index) {
+    //     carousel.style.transform = `translateX(-${index * 100}%)`;
+    // }
 
-    function nextItem() {
-        index = (index < items.length - 1) ? index + 1 : 0;
-        showItem(index);
-    }
+    // function nextItem() {
+    //     index = (index < items.length - 1) ? index + 1 : 0;
+    //     showItem(index);
+    // }
 
-    function prevItem() {
-        index = (index > 0) ? index - 1 : items.length - 1;
-        showItem(index);
-    }
+    // function prevItem() {
+    //     index = (index > 0) ? index - 1 : items.length - 1;
+    //     showItem(index);
+    // }
 
-    prevButton.addEventListener('click', prevItem);
-    nextButton.addEventListener('click', nextItem);
+    // prevButton.addEventListener('click', prevItem);
+    // nextButton.addEventListener('click', nextItem);
 
     // Inicializa o carrossel
-    showItem(index);
+    // showItem(index);
 
     // Roda automaticamente a cada 10 segundos
-    setInterval(nextItem, 1000000); // 10000 milissegundos = 10 segundos
+    // setInterval(nextItem, 1000000); 10000 milissegundos = 10 segundos
+
+    function updateTitle() {
+        if(window.innerWidth <= 800) {
+            document.querySelector(".info-products h2").innerHTML = "Deslize para explorar nossa lista de produtos exclusiva";
+        } else {
+            document.querySelector(".info-products h2").innerHTML = "Explore abaixo nossa lista exclusiva de produtos";
+        }
+    }
+    
+    // Chama a função ao carregar a página
+    updateTitle();
+    
+    // Adiciona um listener para o evento de redimensionamento
+    window.addEventListener('resize', updateTitle);
 });

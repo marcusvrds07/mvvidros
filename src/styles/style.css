@@ -197,9 +197,16 @@ footer {
   font-size: 12px;
   background-color: rgb(38, 38, 151);
 }
+
+.footer-contentf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 footer .footer-content li {
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 20px;
 }
 footer .footer-content .social-media ul {
   text-align: center;
@@ -215,8 +222,8 @@ footer .final-footer {
 }
 .final-footer p {
   color: #f6f1f1; 
-  font-weight: 300;
-  font-size: 10px;
+  font-weight: 400;
+  font-size: 12px;
 }
 .final-footer a {
   text-decoration: none;
@@ -228,24 +235,21 @@ footer .final-footer {
 }
 .products {
   grid-area: products1;
+  margin: 0px auto;
 }
 .contact {
   grid-area: contact1;
-}
-.contact h1 {
-  margin-left: 10px;
-}
-.products h1 {
-  margin-left: 5px;
+  margin: 0 auto;
 }
 
 .contentf {
   display: grid;
-  width: 100%;
   color: #fff;
-  grid-template-columns: 10% 0.5fr 5% 0.3fr 5% 0.4fr 10%;
+  grid-template-columns: 0.7fr 0.7fr 0.7fr;
   grid-template-rows: 100%;
-  grid-template-areas: ". company1 . products1 . contact1 .";
+  grid-template-areas: "company1 products1 contact1";
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .contentf a {
   font-size: 14px;
@@ -265,7 +269,7 @@ footer .final-footer {
 }
 .products ul li {
   display: flex;
-  margin-left: -2.5em;
+  margin-left: -3.5em;
   margin-top: 5px;
   text-align: justify;
 }
@@ -273,6 +277,7 @@ footer .final-footer {
   color: #fff;
   text-align: center;
   z-index: 10;
+  margin: 0 auto;
 }
 .products li a:hover, .contact li a:hover {
   color: rgba(0, 0, 0, 0.5);
@@ -283,12 +288,9 @@ footer .final-footer {
 .contact ul {
   margin-left: -5em;
 }
-.contact li {
-  margin-top: 5.5px;
-}
 .contact ul li a{
   position: relative;
-  margin-left: 10px;
+  margin-left: 2px;
   top: -1px;
   color: #fff;
 }
@@ -356,9 +358,9 @@ footer .final-footer {
 
 /* Estilos de animação */
 .experience-text p,
-.experience-text h1 {
+.experience-text h1, .experience-text .box {
   opacity: 0; /* Começa invisível */
-  animation: fadeIn 1.5s forwards; /* Adiciona a animação */
+  animation: fadeIn 2s forwards; /* Adiciona a animação */
 }
 
 .experience-text {
@@ -462,6 +464,16 @@ footer .final-footer {
   grid-template-rows: 80%;
   grid-template-areas: ". intro1 . texti .";
 } 
+
+.intro-text iframe {
+  width: 80%; /* Largura do iframe 100% */
+  height: 350px; /* Altura do iframe */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  border-radius: 10px;
+  border: 0;
+}
+
+
 .info-products {
   position: relative;
   top: 40px;
@@ -486,35 +498,25 @@ footer .final-footer {
   font-weight: bold;
 }
 
+.produtosbox {
+  display: flex; /* Usar flexbox para centralizar */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Alinha verticalmente, se necessário */
+  padding-left: 8%; /* Adiciona um padding, se desejado */
+}
+
 .box-produtos {
   padding-top: 30px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100%;
-  grid-template-areas: ". produto-1 . produto-2 . produto-3 .";
+  display: grid; /* Usar grid para a visualização inicial */
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas inicialmente */
+  gap: 30px; /* Espaçamento entre os cards */
+  width: 80%; /* Garantir que a largura ocupe 100% da página */
+  margin: 0; /* Remove margens para garantir que esteja alinhado */
 }
 
-.produto1 img, .produto2 img, .produto3 img {
-  width: 250px;
-}
-
-.produto1 {
-  width: 250px;
-  grid-area: produto-1;
-}
-
-.produto2 {
-  width: 250px;
-  grid-area: produto-2;
-}
-
-.produto3 {
-  width: 250px;
-  grid-area: produto-3;
-}
-
-.produto1, .produto2, .produto3 {
+.produto {
+  width: 250px; /* Largura fixa para todos os produtos */
+  height: 370px; /* Altura fixa para todos os produtos */
   background-color: rgb(38, 38, 151);
   font-size: 12px;
   border-radius: 50px;
@@ -523,18 +525,57 @@ footer .final-footer {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
-.produto1:hover, .produto2:hover, .produto3:hover {
+
+.produto:hover {
   transition-delay: 0.1s;
   transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.2);
 }
-.produto1 img, .produto2 img, .produto3 img {
+
+.produto img {
   border-radius: 50px 50px 0px 0px;
-  height: 280px;
+  height: 280px; /* Altura fixa da imagem */
+  width: 100%; /* A imagem ocupa toda a largura do card */
 }
-.produto1 h1, .produto2 h1, .produto3 h1 {
+
+.produto h1 {
   color: #fff;
 }
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .produtosbox {
+    display: flex; /* Usar flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Alinha verticalmente, se necessário */
+    padding-left: 0%;
+  }
+  .box-produtos {
+      display: flex; /* Usa flex para uma linha única */
+      overflow-x: auto; /* Permite rolagem horizontal */
+      white-space: nowrap; /* Evita que os itens quebrem para nova linha */
+      margin: 0; /* Remove margens para garantir que esteja alinhado */
+      z-index: 100;
+  }
+  
+  .produto {
+      flex: 0 0 250px; /* Mantém o tamanho fixo dos produtos */
+      margin: 0 10px; /* Espaçamento lateral entre os produtos */
+  }
+  .produto:hover {
+    display: none;
+  }
+
+  /* Oculta scrollbar em navegadores */
+  .box-produtos::-webkit-scrollbar {
+      display: none; /* Oculta scrollbar no Chrome e Safari */
+  }
+  .box-produtos {
+      -ms-overflow-style: none; /* Oculta scrollbar no IE e Edge */
+      scrollbar-width: none; /* Oculta scrollbar no Firefox */
+  }
+}
+
 
 .project h1 {
   text-align: center;

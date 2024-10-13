@@ -64,7 +64,7 @@
     }
     .aboutinfo {
         grid-template-columns: 10% 1fr 10%;
-        grid-template-rows: 20% 5% 75%;
+        grid-template-rows: 1fr 10px 1fr;
         grid-template-areas: ". intro1 ."
                              ". . ."
                              ". texti .";
@@ -78,6 +78,13 @@
     .experience-text p {
         font-size: 80%;
     }
+    .intro-text iframe {
+        width: 100%; /* Largura do iframe 100% */
+        height: 350px; /* Altura do iframe */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+        border-radius: 10px;
+        border: 0;
+      }
     
   }
 
@@ -99,71 +106,55 @@
     }
   }
 
-  @media (max-width: 800px) {
-    .contentf {
-        grid-template-columns: 5% 0.5fr 5% 0.5fr 5% 0.9fr 5%;
-        grid-template-rows: 100%;
-        grid-template-areas: ". company1 . products1 . contact1 .";
-      }
-      .box-produtos {
-        display: inline-block;
-        width: 100%;
-        height: 370px;
-        margin-left: -20px;
-        overflow-x: scroll;
-        white-space: nowrap;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .container::-webkit-scrollbar {
-        display: none;
-    }
-      .produto1:hover, .produto2:hover, .produto3:hover {
-        transform: scale(1.1);
-        box-shadow: none;
-      }
-      .produto1, .produto2, .produto3 {
-        display: inline-block;
-        margin-left: 20px;
-      }
-  }
 
-  @media (max-width: 555px) {
+  @media (max-width: 660px) {
+    .contentf {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    .company p {
+        text-align: center;
+    }
     .contentf h1 {
-        font-size: 14px;
+        text-align: center;
     }
-    .contentf li a, .contentf p{
-        font-size: 12px;
-        font-weight: 400;
+    .contact {
+        text-align: center; /* Centraliza o conteúdo */
+      }
+      
+      .contact ul {
+        list-style: none; /* Remove as bolinhas da lista */
+      }
+      
+      .contact a {
+        text-decoration: none;  /* Remove o sublinhado dos links */
+        color: #fff;            /* Define a cor dos links */
+        display: inline-block;   /* Garante que os links sejam blocos */    
+      }
+      .footer-content li {
+         margin-left: 0px;
     }
-    .contact ul li img {
-        width: 12px;
-    }
-    .contact ul {
-        margin-left: -4.35rem;
-    }
-    .experience-text h1 {
-        font-size: 20px;
-    }
-    .contact h1 {
-        margin-left: 2px;
+    .contact ul li a{
+        margin-left: 0px;
     }
     .final-footer p {
-        font-weight: 400;
+        font-weight: bold;
+        font-size: 15px;
+    }
+  }
+  @media (max-width: 555px) {
+    .experience-text h1 {
+        font-size: 20px;
     }
     .experience-text p {
         font-size: 70%;
     }
   }
+
   @media (max-width: 400px) {
-    .contentf h1 {
-        font-size: 12px;
-    }
-    .contentf li, p{
-        font-size: 11px;
-    }
-    .contact ul li img {
-        width: 10px;
+     .contentf h1 {
+        font-size: 15px;
     }
     .experience-text h1 {
         font-size: 15px;
@@ -172,18 +163,10 @@
         font-size: 80%;
     }
   }
+
   @media (max-width: 341px) {
-    .contentf h1 {
-        font-size: 10px;
-    }
-    .contentf li, p{
-        font-size: 9px;
-    }
-    .contact ul li img {
-        width: 8px;
-    }
     .svgfooter {
         position: relative;
-        top: 0.6rem;
+        top: 0.3rem;
       }
   }

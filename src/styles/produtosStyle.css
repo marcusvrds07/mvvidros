@@ -4,12 +4,12 @@ body {
     background-color: #eae8e8;
     box-sizing: border-box;
 }
-.produto {
+.item {
     position: relative;
     top: 40px;
 }
 
-.produto h1 {
+.item h1 {
     position: relative;
     top: 40px;
     text-align: center;
@@ -17,7 +17,7 @@ body {
     color: rgb(38, 38, 151);;
 }
 
-.produto hr {
+.item hr {
     position: relative;
     top: 20px;
     width: 10%;
@@ -26,12 +26,33 @@ body {
     height: 2px;
 }
 
-.produto p {
+.item p {
     position: relative;
     top: 30px;
     margin: 0 auto;
     color: rgb(69, 66, 66);
     text-align: center;
-    width: 70%;
-    line-height: 18px;
+    width: 50%;
+    line-height: 20px;
+}
+
+@media (max-width: 1050px) {
+    .item p {
+        width: 60%;
+    }
+}
+@media (max-width: 896px) {
+    .item p {
+        width: 70%;
+    }
+}
+@media (max-width: 750px) {
+    .item p {
+        width: 80%;
+    }
+}
+@media (max-width: 660px) {
+    .item p {
+        width: 90%;
+    }
 }
