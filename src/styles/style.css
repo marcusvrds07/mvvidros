@@ -466,8 +466,8 @@ footer .final-footer {
 } 
 
 .intro-text iframe {
-  width: 80%; /* Largura do iframe 100% */
-  height: 350px; /* Altura do iframe */
+  width: 100%; /* Largura do iframe 100% */
+  height: 120%; /* Altura do iframe */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
   border-radius: 10px;
   border: 0;
@@ -498,25 +498,27 @@ footer .final-footer {
   font-weight: bold;
 }
 
+/* Centralizar a produtosbox no meio da página */
 .produtosbox {
-  display: flex; /* Usar flexbox para centralizar */
+  display: flex;
   justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Alinha verticalmente, se necessário */
-  padding-left: 8%; /* Adiciona um padding, se desejado */
+  align-items: center; /* Centraliza verticalmente */
+  width: 100%; /* Garante que a largura ocupe o espaço total */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  position: relative;
+  top: 35px;
 }
 
 .box-produtos {
-  padding-top: 30px;
-  display: grid; /* Usar grid para a visualização inicial */
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas inicialmente */
-  gap: 30px; /* Espaçamento entre os cards */
-  width: 80%; /* Garantir que a largura ocupe 100% da página */
-  margin: 0; /* Remove margens para garantir que esteja alinhado */
+  display: grid;
+  grid-template-columns: repeat(3, 250px); /* Mantém 3 cards por linha */
+  gap: 50px;
+  width: fit-content; /* Ajusta a largura conforme o conteúdo */
 }
 
 .produto {
-  width: 250px; /* Largura fixa para todos os produtos */
-  height: 370px; /* Altura fixa para todos os produtos */
+  width: 250px; /* Tamanho fixo do card */
+  height: 370px; /* Tamanho fixo do card */
   background-color: rgb(38, 38, 151);
   font-size: 12px;
   border-radius: 50px;
@@ -527,54 +529,20 @@ footer .final-footer {
 }
 
 .produto:hover {
-  transition-delay: 0.1s;
   transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .produto img {
   border-radius: 50px 50px 0px 0px;
-  height: 280px; /* Altura fixa da imagem */
-  width: 100%; /* A imagem ocupa toda a largura do card */
+  height: 280px;
+  width: 100%;
 }
 
 .produto h1 {
   color: #fff;
 }
 
-/* Responsividade */
-@media (max-width: 800px) {
-  .produtosbox {
-    display: flex; /* Usar flexbox para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Alinha verticalmente, se necessário */
-    padding-left: 0%;
-  }
-  .box-produtos {
-      display: flex; /* Usa flex para uma linha única */
-      overflow-x: auto; /* Permite rolagem horizontal */
-      white-space: nowrap; /* Evita que os itens quebrem para nova linha */
-      margin: 0; /* Remove margens para garantir que esteja alinhado */
-      z-index: 100;
-  }
-  
-  .produto {
-      flex: 0 0 250px; /* Mantém o tamanho fixo dos produtos */
-      margin: 0 10px; /* Espaçamento lateral entre os produtos */
-  }
-  .produto:hover {
-    display: none;
-  }
-
-  /* Oculta scrollbar em navegadores */
-  .box-produtos::-webkit-scrollbar {
-      display: none; /* Oculta scrollbar no Chrome e Safari */
-  }
-  .box-produtos {
-      -ms-overflow-style: none; /* Oculta scrollbar no IE e Edge */
-      scrollbar-width: none; /* Oculta scrollbar no Firefox */
-  }
-}
 
 
 .project h1 {
@@ -584,6 +552,144 @@ footer .final-footer {
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
+
+/* cotação */
+
+form h2 {
+  text-align: center;
+}
+
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: rgb(38, 38, 151);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: rgb(28, 28, 121);
+}
+
+/* Estilo para os alertas */
+.alert {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  top: 10px;
+  left: 88%;
+  transform: translateX(-50%);
+  background-color:  rgb(28, 28, 121); /* Vermelho para erro */
+  color: white;
+  padding: 20px;
+  width: 299px;
+  border-radius: 5px;
+  z-index: 1000;
+  animation: fadeIn 0.5s; /* Correção do nome da animação */
+  animation: fadeInZoom 0.5s; /* Chamada para a nova animação */
+}
+
+@keyframes fadeInZoom {
+  0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8); /* Reduzido no início */
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1); /* Tamanho normal no final */
+  }
+}
+
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s;
+  z-index: 100;
+}
+
+.closebtn:hover {
+  color: #000000; /* Cor dourada ao passar o mouse */
+}
+
+  #alertMessage {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+}
+
+.success-alert {
+  background-color: rgb(38, 151, 38); /* Verde para sucesso */
+}
+
+@keyframes fadeIn { /* Correção do nome da animação */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Estilo para a barra de progresso */
+.progress-container {
+  width: 339.2px;
+  background-color: #ddd;
+  margin-top: 10px;
+  position: relative;
+  top: 21px;
+  right: 19.64px;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #abaaaa; /* Verde para sucesso */
+  width: 0%; /* Inicialmente escondido */
+  transition: width 0.1s linear; /* Transição suave ao alterar a largura */
+  margin-top: 40px;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 
   
 /* ANIMAÇÃO */

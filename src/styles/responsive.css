@@ -3,14 +3,18 @@
         position: absolute;
         top: 65px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(-20px);
         width: 80%;
         gap: 20px;
         flex-direction: column;
         background-color: #f6f1f1;
-        display: none;
-        justify-content: space-between;
+        opacity: 0; 
+        transition: transform 0.5s ease, opacity 0.5s ease; 
         align-items: center;
+        padding: 0;
+        border-radius: 1rem;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+        pointer-events: none;   
       }
       .logo {
         width: 80px;
@@ -44,10 +48,11 @@
     }
   
     .nav-links.active {
-        display: flex;
+       display: flex; /* Flexível quando ativo */
+        transform: translateX(-50%) translateY(0); /* Volta ao lugar visível */
+        opacity: 1; /* Totalmente visível */
+        pointer-events: all; /* Permite cliques no menu visível */
         padding: 10px 0px 15px 0px;
-        border-radius: 1rem;
-        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
   
     .nav-links .dropdown-content {
@@ -61,13 +66,6 @@
     }
     .experience-item {
         height: 260px;
-    }
-    .aboutinfo {
-        grid-template-columns: 10% 1fr 10%;
-        grid-template-rows: 1fr 10px 1fr;
-        grid-template-areas: ". intro1 ."
-                             ". . ."
-                             ". texti .";
     }
     .intro-text p {
         font-size: 14px;
@@ -91,6 +89,16 @@
   @media (max-width: 915px) {
     .experience-text h1 {
         font-size: 40px;
+    }
+    .intro-text iframe {
+        height: 100%; /* Altura do iframe */
+      }
+    .aboutinfo {
+        grid-template-columns: 10% 1fr 10%;
+        grid-template-rows: 1fr 10px 1fr;
+        grid-template-areas: ". intro1 ."
+                             ". . ."
+                             ". texti .";
     }
   }
 
@@ -169,4 +177,40 @@
         position: relative;
         top: 0.3rem;
       }
+  }
+
+  @media (max-width: 870px) {
+    .box-produtos {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
+    }
+  }
+  
+  /* Responsividade para telas menores que 800px */
+  @media (max-width: 650px) {
+    .produtosbox {
+      padding: 0; /* Remove padding lateral */
+    }
+  
+    .box-produtos {
+      display: flex; /* Troca para flexbox em telas pequenas */
+      overflow-x: auto; /* Habilita rolagem horizontal */
+      gap: 30px; /* Espaçamento entre os cards */
+      white-space: nowrap; /* Impede quebra de linha */
+      width: 100%; /* Garante que ocupe toda a largura */
+      padding: 40px; /* Adiciona espaçamento interno */
+    }
+  
+    .produto {
+      flex: 0 0 250px; /* Mantém o tamanho fixo dos produtos */
+    }
+  
+    /* Oculta barra de rolagem em navegadores */
+    .box-produtos::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .box-produtos {
+      -ms-overflow-style: none; /* Oculta scrollbar no IE/Edge */
+      scrollbar-width: none; /* Oculta scrollbar no Firefox */
+    }
   }

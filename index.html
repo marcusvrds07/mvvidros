@@ -32,7 +32,6 @@
                 </div>
             </li>
             <li id="border"><a href="#">Contatos</a></li>
-            <li><a href="https://maps.app.goo.gl/uRgcmP8vbGfDufdh6" target="_blank">Localização</a></li>
         </ul>
         <div class="hamburger">
             <div class="bar"></div>
@@ -112,6 +111,48 @@
         <div class="project">
             <h1>PROJETOS</h1>
         </div>
+
+        <div class="cotacao">
+            <h1>COTAÇÃO</h1>
+        
+            <div id="errorAlert" class="alert">
+                <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
+                <span id="alertMessage"></span>
+                <div class="progress-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+            </div>
+            
+            <div id="successAlert" class="alert success-alert">
+                <span class="closebtn" onclick="closeAlert('successAlert')">&times;</span>
+                <span id="successMessage"></span>
+                <div class="progress-container">
+                    <div id="successProgressBar" class="progress-bar"></div>
+                </div>
+            </div>
+            
+            <form id="quotationForm" onsubmit="return validateForm()">
+                <h2>Solicitação de Cotação</h2>
+        
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome completo">
+        
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" placeholder="Seu e-mail">
+        
+                <label for="service">Tipo de Serviço:</label>
+                <div id="service-container"></div>
+        
+                <label for="date">Data de Solicitação:</label>
+                <input type="date" id="date" name="date">
+        
+                <label for="message">Detalhes da Solicitação:</label>
+                <textarea id="message" name="message" placeholder="Descreva sua solicitação com detalhes"></textarea>
+        
+                <button type="submit">Enviar Cotação</button>
+            </form>
+        </div>
+        
 
     </main>
     

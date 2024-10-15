@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // setInterval(nextItem, 1000000); 10000 milissegundos = 10 segundos
 
     function updateTitle() {
-        if(window.innerWidth <= 800) {
+        if(window.innerWidth <= 650) {
             document.querySelector(".info-products h2").innerHTML = "Deslize para explorar nossa lista de produtos exclusiva";
         } else {
             document.querySelector(".info-products h2").innerHTML = "Explore abaixo nossa lista exclusiva de produtos";
@@ -119,3 +119,153 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adiciona um listener para o evento de redimensionamento
     window.addEventListener('resize', updateTitle);
 });
+
+// Variável para armazenar a referência do intervalo da barra de progresso
+let progressBarInterval = null;
+
+// Função para criar o select de serviços dinamicamente
+function createServiceSelect() {
+    const services = [
+        { value: "", text: "Selecione um serviço" },
+        { value: "instalacao-vidros", text: "Instalação de Vidros" },
+        { value: "manutencao-vidros", text: "Manutenção de Vidros" },
+        { value: "outro", text: "Outro" }
+    ];
+
+    const select = document.createElement("select");
+    select.id = "service";
+    select.name = "service";
+
+    services.forEach(service => {
+        const option = document.createElement("option");
+        option.value = service.value;
+        option.text = service.text;
+        select.appendChild(option);
+    });
+
+    document.getElementById("service-container").appendChild(select);
+}
+
+// Chamar a função para criar o select quando a página carregar
+window.onload = function () {
+    createServiceSelect();
+}
+
+// Variável para rastrear se um alerta está visível
+let isAlertVisible = false;
+
+// Função para mostrar alerta de erro ou sucesso
+function showAlert(message, type) {
+    // Se já existe um alerta visível, não faça nada
+    if (isAlertVisible) return;
+
+    isAlertVisible = true; // Marca que um alerta está visível
+    const alertDiv = document.getElementById(type + 'Alert');
+    const alertMessage = document.getElementById(type === 'error' ? 'alertMessage' : 'successMessage');
+    
+    alertMessage.innerText = message;
+    alertDiv.style.display = "block";
+
+    // Desabilitar o botão de enviar
+    document.querySelector("button[type='submit']").disabled = true;
+
+    // Iniciar a barra de progresso correta
+    const progressBar = document.getElementById(type === 'error' ? 'progressBar' : 'successProgressBar');
+    progressBar.style.width = "340px"; // Largura inicial da barra
+
+    // Configurações da barra de progresso
+    const totalDuration = 10000; // 10 segundos
+    const intervalTime = 100; // Intervalo de tempo em milissegundos
+
+    let width = 340; // Começa em 350px
+    const decrementAmount = (340 / (totalDuration / intervalTime)); // Decremento proporcional à largura da barra
+
+    // Limpar qualquer intervalo existente antes de iniciar um novo
+    if (progressBarInterval) {
+        clearInterval(progressBarInterval);
+    }
+
+    progressBarInterval = setInterval(() => {
+        width -= decrementAmount; // Decrementa a largura da barra
+        if (width < 0) width = 0; // Garantir que não fique menor que 0
+        progressBar.style.width = width + "px"; // Atualiza a largura da barra
+
+        if (width <= 0) {
+            clearInterval(progressBarInterval); // Para o intervalo quando a barra chega a 0
+            closeAlert(type + 'Alert'); // Fecha o alerta
+        }
+    }, intervalTime); // A cada 100ms
+}
+
+// Função para fechar o alerta
+function closeAlert(alertId) {
+    const alertDiv = document.getElementById(alertId);
+    alertDiv.style.display = "none";
+    
+    // Limpa e reseta a barra de progresso correta (erro ou sucesso)
+    const progressBar = document.getElementById(alertId === 'errorAlert' ? 'progressBar' : 'successProgressBar');
+    progressBar.style.width = "0"; // Resetar a largura da barra
+
+    // Limpar o intervalo da barra de progresso ao fechar o alerta
+    if (progressBarInterval) {
+        clearInterval(progressBarInterval);
+        progressBarInterval = null;
+    }
+
+    isAlertVisible = false; // Reseta a variável que controla se um alerta está visível
+    document.querySelector("button[type='submit']").disabled = false; // Reabilitar o botão de enviar
+}
+
+// Função de validação do formulário
+function validateForm(event) {
+    // Prevenir o envio do formulário padrão
+    event.preventDefault();
+
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let service = document.getElementById('service').value;  // Supondo que você tenha botões de rádio
+    let date = document.getElementById('date').value;
+    let message = document.getElementById('message').value.trim();
+
+    // Validação do nome (ao menos duas palavras)
+    if (name.split(' ').length < 2) {
+        showAlert("O nome deve conter ao menos duas palavras.", 'error');
+        return; // Prevenir o envio do formulário
+    }
+
+    // Validação do e-mail (deve conter "@" e ".")
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailPattern.test(email)) {
+        showAlert("Insira um e-mail válido.", 'error');
+        return; // Prevenir o envio do formulário
+    }
+
+    // Validação da seleção do serviço (se houver um input radio)
+    if (service === "") { // Verifica se o valor do select é vazio
+        showAlert("Selecione um serviço.", 'error');
+        return; // Prevenir o envio do formulário
+    }
+
+    // Validação da data (se necessário)
+    if (!date) {
+        showAlert("Selecione uma data.", 'error');
+        return; // Prevenir o envio do formulário
+    }
+
+    // Validação da mensagem (10 a 500 caracteres)
+    if (message.length < 10 || message.length > 500) {
+        showAlert("A mensagem deve ter entre 10 e 500 caracteres.", 'error');
+        return; // Prevenir o envio do formulário
+    }
+
+    // Se tudo estiver correto, mostrar alerta de sucesso
+    showAlert("Cotação enviada com sucesso!", 'success');
+
+    // Aqui você pode adicionar a lógica para enviar os dados do formulário
+    // Por exemplo, fazer uma requisição AJAX para enviar os dados
+
+    return false; // Prevenir o envio do formulário
+}
+
+// Adiciona o evento de clique no botão de enviar
+document.querySelector("button[type='submit']").addEventListener("click", validateForm);
