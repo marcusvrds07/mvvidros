@@ -113,7 +113,7 @@
         </div>
 
         <div class="cotacao">
-            <h1>COTAÇÃO</h1>
+            <h1>Entre em contato com a Mv Vidros</h1>
         
             <div id="errorAlert" class="alert">
                 <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
@@ -131,27 +131,50 @@
                 </div>
             </div>
             
-            <form id="quotationForm" onsubmit="return validateForm()">
-                <h2>Solicitação de Cotação</h2>
-        
-                <label for="name">Nome Completo:</label>
-                <input type="text" id="name" name="name" placeholder="Seu nome completo">
-        
-                <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email" placeholder="Seu e-mail">
-        
-                <label for="service">Tipo de Serviço:</label>
-                <div id="service-container"></div>
-        
-                <label for="date">Data de Solicitação:</label>
-                <input type="date" id="date" name="date">
-        
-                <label for="message">Detalhes da Solicitação:</label>
-                <textarea id="message" name="message" placeholder="Descreva sua solicitação com detalhes"></textarea>
-        
-                <button type="submit">Enviar Cotação</button>
-            </form>
+            <div class="form">
+                <form id="quotationForm" onsubmit="return validateForm()">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome <span class="required">*</span>:</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome completo">
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="email">E-mail <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="Seu e-mail">
+                        </div>
+                    </div>
+            
+                    <!-- Inverti as posições abaixo -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Número de Telefone <span class="required">*</span></label>
+                            <input type="text" id="phone" placeholder="(XX) XXXXX-XXXX" required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="service">Tipo de Serviço <span class="required">*</span></label>
+                            <div id="service-container"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Detalhes da Solicitação <span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Descreva sua solicitação com detalhes"></textarea>
+                    </div>
+                
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="policy" name="policy">
+                        <label for="policy">Eu concordo com a <a href="#">Política de Privacidade</a></label>
+                    </div>
+                
+                    <button type="submit" class="btn-submit">Enviar Cotação</button>
+                </form>
+            </div>
+            
         </div>
+            
+    </div>
         
 
     </main>

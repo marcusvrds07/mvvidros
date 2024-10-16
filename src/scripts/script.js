@@ -216,6 +216,47 @@ function closeAlert(alertId) {
     document.querySelector("button[type='submit']").disabled = false; // Reabilitar o botão de enviar
 }
 
+// Função para formatar o número de telefone enquanto o usuário digita
+function formatPhoneNumber(input) {
+    // Remove caracteres não numéricos
+    const numbers = input.value.replace(/\D/g, '');
+    
+    // Formatação: (XX) XXXXX-XXXX
+    const ddd = numbers.slice(0, 2);
+    const firstPart = numbers.slice(2, 7);
+    const secondPart = numbers.slice(7, 11);
+
+    // Monta a string formatada
+    let formattedNumber = '';
+    if (ddd) {
+        formattedNumber += `(${ddd}) `;
+    }
+    if (firstPart) {
+        formattedNumber += `${firstPart}`;
+    }
+    if (secondPart) {
+        formattedNumber += `-${secondPart}`;
+    }
+
+    input.value = formattedNumber.trim();
+}
+
+// Função de validação do número de telefone
+function validatePhoneNumber() {
+    const phoneInput = document.getElementById("phone");
+    const phoneError = document.getElementById("phoneError");
+    
+    // Remove caracteres não numéricos para validação
+    const numbers = phoneInput.value.replace(/\D/g, '');
+
+    // Verifica se o número tem 11 dígitos (incluindo o DDD)
+    if (numbers.length !== 11) {
+        return false; // Número inválido
+    } else {
+        return true; // Número válido
+    }
+}
+
 // Função de validação do formulário
 function validateForm(event) {
     // Prevenir o envio do formulário padrão
@@ -224,7 +265,6 @@ function validateForm(event) {
     let name = document.getElementById('name').value.trim();
     let email = document.getElementById('email').value.trim();
     let service = document.getElementById('service').value;  // Supondo que você tenha botões de rádio
-    let date = document.getElementById('date').value;
     let message = document.getElementById('message').value.trim();
 
     // Validação do nome (ao menos duas palavras)
@@ -240,15 +280,15 @@ function validateForm(event) {
         return; // Prevenir o envio do formulário
     }
 
+    // Validação do telefone
+    if (!validatePhoneNumber()) {
+        showAlert("Insira um número de telefone válido com DDD e 9 dígitos.", 'error');
+        return; 
+    }
+
     // Validação da seleção do serviço (se houver um input radio)
     if (service === "") { // Verifica se o valor do select é vazio
         showAlert("Selecione um serviço.", 'error');
-        return; // Prevenir o envio do formulário
-    }
-
-    // Validação da data (se necessário)
-    if (!date) {
-        showAlert("Selecione uma data.", 'error');
         return; // Prevenir o envio do formulário
     }
 
@@ -266,6 +306,11 @@ function validateForm(event) {
 
     return false; // Prevenir o envio do formulário
 }
+
+// Adiciona o evento de input ao campo de telefone
+document.getElementById("phone").addEventListener("input", function() {
+    formatPhoneNumber(this);
+});
 
 // Adiciona o evento de clique no botão de enviar
 document.querySelector("button[type='submit']").addEventListener("click", validateForm);
