@@ -17,17 +17,15 @@
 </head>
 <body>
     <nav>
-        <div class="logo">
-            <a href="index.html"><img src="src/imagens/mvlogo.png" alt="mvlogo"></a>
-        </div>
+        <div class="logo"><img src="src/imagens/mvlogo.png" alt="mvlogo"></div>
         <ul class="nav-links">
             <li><a href="index.html">Início</a></li>
-                    <li><a href="#">Sobre</a></li>
+            <li><a href="#">Sobre</a></li>
             <li class="dropdown">
-                <a class="dropbtn">Produtos</a>
-                <div class="dropdown-content">
+                <a class="dropbtn" id="dropdownBtn">Produtos <i class="arrow down"></i></a>
+                <div class="dropdown-content" id="dropdownContent">
                     <a href="#" id="space">Janelas</a>
-                    <a href="#">Box Temperado</a>
+                    <a href="src/sub-paginas/box.html">Box Temperado</a>
                     <a href="#">Serviço 3</a>
                 </div>
             </li>
@@ -38,7 +36,8 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-    </nav>
+    </nav> 
+
     <main>
         <a href="https://api.whatsapp.com/send/?phone=5521994076672&text&type=phone_number&app_absent=0" target="_blank"><img src="src/imagens/whatsappicon.png" alt="icone do whatsapp" class="whatsapp-icon"></a> 
 
@@ -58,7 +57,7 @@
             <h1>MV VIDROS</h1><p class="line"></p>
             <div class="aboutinfo">
                 <div class="intro">
-                    <h2>UM POUCO SOBRE NÓS...</h1><h3>Renovamos o seu espaço com vidros personalizados sob medida.</h2>
+                    <h2>UM POUCO SOBRE NÓS...</h2><h3>Renovamos o seu espaço com vidros personalizados sob medida.</h3>
                     <p><span class="destaque-s">S</span>omos a Mv Vidros, especializados em oferecer soluções personalizadas de alta qualidade em vidros e serralheria, sempre a preços acessíveis. Nossa ampla gama de produtos inclui box para banheiro, portas, janelas, sacadas, guarda-corpos, armários de pia e muito mais. Atendemos com dedicação tanto clientes residenciais quanto comerciais, adaptando-nos às suas necessidades específicas.<br><br>Nosso compromisso é proporcionar produtos que não apenas atendam, mas superem suas expectativas. Com foco na durabilidade e segurança, garantimos resultados excepcionais em cada projeto. Trabalhamos para oferecer o melhor custo-benefício, assegurando que nossos clientes tenham a melhor experiência possível ao escolher nossos serviços.</p>
                 </div>
                 <div class="intro-text">
@@ -145,7 +144,6 @@
                         </div>
                     </div>
             
-                    <!-- Inverti as posições abaixo -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Número de Telefone <span class="required">*</span></label>
@@ -220,6 +218,7 @@
         </div>
     </footer>
     
+    <script src="src/scripts/dropdown.js"></script>
     <script src="src/scripts/script.js"></script>
 </body>
 </html>

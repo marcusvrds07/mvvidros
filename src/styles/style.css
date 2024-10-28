@@ -57,6 +57,7 @@ nav {
   font-size: 16px;
   font-weight: 400  ;
   overflow: hidden;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -64,7 +65,6 @@ nav {
 }
 
 .nav-links a::after {
-  content: '';
   position: absolute;
   width: 0;
   height: 2px;
@@ -78,12 +78,8 @@ nav {
   cursor: pointer;
 }
 
-.dropbtn::after {
-  display: none;
-}
-
 .nav-links .dropdown-content {
-  display: none;
+  display: none; /* Inicialmente oculto */
   position: absolute;
   background-color: #f6f1f1;
   top: 19px;
@@ -98,29 +94,46 @@ nav {
 
 #space {
   margin-top: 20px;
-} 
-
-.dropdown-content a:hover::after {
-  display: none;
 }
+
 .dropdown-content a:hover {
   background-color: rgb(38, 38, 151);
   color: white;
 }
 
-.nav-links .dropdown:hover .dropdown-content {
-  display: block;
+.active {
+  display: block; /* Mostrar o dropdown quando a classe 'active' for adicionada */
 }
 
-.nav-links .dropdown:hover .dropdown-content,
-.nav-links .dropdown:focus-within .dropdown-content {
-  display: block;
+#dropdownBtn {
+  width: 110%;
 }
 
-.nav-links .dropdown-content a:focus {
-  outline: none;
-  background-color: rgb(38, 38, 151);
-  color: white;
+i {
+  position: relative;
+  left: 4px;
+  bottom: 3px;
+  transition: border-color 0.3s ease;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: transform 0.6s ease;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+/* Mudança de cor ao passar o mouse sobre o link */
+.dropbtn:hover .arrow {
+  border-color: rgb(38, 38, 151);
+}
+
+.arrow.rotate {
+  transform: rotate(-135deg) translateY(-2px) translateX(-4px);
 }
 
 
@@ -364,8 +377,8 @@ footer .final-footer {
 /* Estilos de animação */
 .experience-text p,
 .experience-text h1, .experience-text .box {
-  opacity: 0; /* Começa invisível */
-  animation: fadeIn 2s forwards; /* Adiciona a animação */
+  opacity: 0; 
+  animation: fadeIn 2s forwards;
 }
 
 .experience-text {
@@ -471,9 +484,9 @@ footer .final-footer {
 } 
 
 .intro-text iframe {
-  width: 100%; /* Largura do iframe 100% */
-  height: 120%; /* Altura do iframe */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  width: 100%;
+  height: 120%; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   border: 0;
 }
@@ -506,10 +519,10 @@ footer .final-footer {
 /* Centralizar a produtosbox no meio da página */
 .produtosbox {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  width: 100%; /* Garante que a largura ocupe o espaço total */
-  margin: 0 auto; /* Centraliza horizontalmente */
+  justify-content: center;
+  align-items: center; 
+  width: 100%; 
+  margin: 0 auto; 
   position: relative;
   top: 35px;
 }
@@ -518,7 +531,7 @@ footer .final-footer {
   display: grid;
   grid-template-columns: repeat(3, 250px); /* Mantém 3 cards por linha */
   gap: 50px;
-  width: fit-content; /* Ajusta a largura conforme o conteúdo */
+  width: fit-content;
 }
 
 .produto {
@@ -583,7 +596,7 @@ footer .final-footer {
 
 /* Estilo geral do formulário */
 form {
-  background-color: #f0f4f8; /* Fundo cinza claro */
+  background-color: #f0f4f8;
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
@@ -604,18 +617,18 @@ form {
 }
 
 .form-row .form-group {
-  width: 48%; /* Largura dos campos lado a lado */
+  width: 48%;
 }
 
 label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
-  color: black; /* Azul escuro para as labels */
+  color: black; 
 }
 
 .required {
-  color: #ff0000; /* Vermelho para o campo obrigatório */
+  color: #ff0000; 
 }
 
 input[type="text"],
@@ -625,7 +638,7 @@ textarea,
 select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #1c3d5a; /* Borda azul escuro */
+  border: 1px solid #1c3d5a;
   border-radius: 5px;
   font-size: 14px;
   background-color: white;
@@ -636,8 +649,8 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #4169e1; /* Azul royal quando focado */
-  outline: none; /* Remover a borda de foco padrão */
+  border-color: #4169e1;
+  outline: none; 
 }
 
 textarea {
@@ -671,21 +684,19 @@ textarea {
 }
 
 .btn-submit:hover {
-  background-color: #4169e1; /* Azul royal ao passar o mouse */
+  background-color: #4169e1;
 }
 
 /* Links */
 a {
-  color: #262697; /* Azul escuro para links */
+  color: #262697;
   text-decoration: none;
 }
 
-a:hover {
+.form a:hover {
   text-decoration: underline;
 }
 
-
-/* Estilo para os alertas */
 .alert {
   display: none; /* Inicialmente escondido */
   position: fixed;
