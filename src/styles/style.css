@@ -766,22 +766,6 @@ textarea {
   animation: fadeInZoom 0.5s ease-out forwards;
 }
 
-.alert {
-  display: none;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background-color:  rgb(28, 28, 121);
-  color: white;
-  padding: 20px 20px 10px;
-  width: 90%;
-  max-width: 300px;
-  border-radius: 5px;
-  z-index: 1000;
-  animation: fadeIn 0.5s;
-  animation: fadeInZoom 0.5s;
-}
-
 .closebtn {
   position: absolute;
   top: 10px;
