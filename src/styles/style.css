@@ -569,48 +569,47 @@ footer .final-footer {
   right: 49%;
   margin-top: 120px;
 }
+
 .cotacao-content {
   position: relative;
-  left: 40%;
+  left: 90%;
+  transform: translateX(-50%);
   top: 40px;
   display: grid;
   grid-template-columns: 60% 40%;
   grid-template-areas: "form second";
 }
+
 .secondPartForm {
   grid-area: second;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: relative;
   top: 15%;
+  padding-left: 50px;
 }
 
-.secondPartForm p {
-  position: relative;
-  left: 50px;
-  top: 50px;
-  color: #2d2c2c;
-}
 .secondPartForm h1 {
   color: #535151;
-  position: relative;
-  top: 10%;
-  left: 50px;
   font-size: 18px;
+  margin: 10px 0; /* Margin para espaçamento */
 }
+
 .secondPartForm h2 {
   color: rgb(38, 38, 151);
-  position: relative;
-  left: 50px;
-  top: 10%;
+  margin: 10px 0;
 }
+
 .secondPartForm hr {
-    position: relative;
-    top: 9%;
-    right: 33.2%;
-    width: 100px;
-    background-color: rgb(38, 38, 151);
-    border: none;
-    height: 4px;
+  width: 80px; /* Tamanho fixo, ajustável */
+  height: 4px;
+  background-color: rgb(38, 38, 151);
+  border: none;
+  margin: 10px 0; /* Espaçamento com os elementos ao redor */
+  margin-left: 2px;
 }
+
 
 .form {
   grid-area: form;
