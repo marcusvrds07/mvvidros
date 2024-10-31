@@ -77,7 +77,7 @@
             <h1>PRODUTOS</h1>
             <h2></h2>
             <div class="produtosbox">
-                <div class="box-produtos">
+                <div class="produtos-grid">
                     <div class="produto">
                         <a href="src/sub-paginas/box.html"><img src="src/imagens/box-capa.jpg" alt="capa do box"></a>
                         <div class="produto-info"><h1>Boxes</h1></div>
@@ -107,76 +107,88 @@
         </div>
         
         
-        <div class="project">
+        <!-- <div class="project">
             <h1>PROJETOS</h1>
-        </div>
+        </div> -->
 
+        
         <div class="cotacao">
-            <h1>Entre em contato com a Mv Vidros</h1>
-        
-            <div id="errorAlert" class="alert">
-                <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
-                <span id="alertMessage"></span>
-                <div class="progress-container">
-                    <div id="progressBar" class="progress-bar"></div>
+            <div class="cotacao-content">
+                <div class="secondPartForm">
+                    <h1>Estamos preparados para te atender</h1>
+                    <h2>Entre em contato com a Mv Vidros</h2>
+                    <hr> 
+                    <p>Entre em contato agora mesmo com a MV Vidros e solicite um orçamento personalizado para o seu projeto.<br><br>Preencha o formulário com seus dados e logo entraremos em contato com você.<br><br>Contamos com especialistas em vidros e serralheria para ajudar em todas as etapas do seu projeto, seja qual for a sua necessidade ou dúvida.</p>
+                </div>
+                <div id="errorAlert" class="alert">
+                    <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
+                    <div id="alertMessage"></div>
+                    <div class="progress-container">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+                </div>
+            
+                <div id="successAlert" class="alert success-alert">
+                    <span class="closebtn" onclick="closeAlert('successAlert')">&times;</span>
+                    <span id="successMessage"></span>
+                    <div class="progress-container">
+                        <div id="successProgressBar" class="progress-bar"></div>
+                    </div>
+                </div>
+            
+                <div class="form">
+                    <form id="quotationForm" onsubmit="return validateForm()">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome <span class="required">*</span>  </label>
+                                <input type="text" id="name" name="name" placeholder="Seu nome completo">
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="email">E-mail <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="Seu e-mail">
+                            </div>
+                        </div>
+            
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Número de Telefone <span class="required">*</span></label>
+                                <input type="text" id="phone" placeholder="(XX) XXXXX-XXXX" required>
+                            </div>
+            
+                            <div class="form-group">
+                                <label for="service">Tipo de Serviço <span class="required">*</span></label>
+                                <div id="service-container"></div>
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="message">Detalhes da Solicitação <span class="required">*</span></label>
+                            <textarea id="message" name="message" placeholder="Descreva sua solicitação com detalhes"></textarea>
+                        </div>
+                        <div class="form-group promo-group">
+                            <label for="promotions">Deseja receber promoções por email?</label>
+                            <div class="radio-group">
+                                <div class="radio-option" data-value="sim" onclick="selectOption(this)">
+                                    <span class="radio-circle">
+                                        <span class="radio-inner-circle"></span>
+                                    </span> Sim
+                                </div>
+                                <div class="radio-option" data-value="nao" onclick="selectOption(this)">
+                                    <span class="radio-circle">
+                                        <span class="radio-inner-circle"></span>
+                                    </span> Não
+                                </div>
+                            </div>
+                            <input type="hidden" id="selectedRadio" name="promotions">
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Cotação</button>
+                    </form>
                 </div>
             </div>
-            
-            <div id="successAlert" class="alert success-alert">
-                <span class="closebtn" onclick="closeAlert('successAlert')">&times;</span>
-                <span id="successMessage"></span>
-                <div class="progress-container">
-                    <div id="successProgressBar" class="progress-bar"></div>
-                </div>
-            </div>
-            
-            <div class="form">
-                <form id="quotationForm" onsubmit="return validateForm()">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Nome <span class="required">*</span>  </label>
-                            <input type="text" id="name" name="name" placeholder="Seu nome completo">
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="email">E-mail <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="Seu e-mail">
-                        </div>
-                    </div>
-            
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Número de Telefone <span class="required">*</span></label>
-                            <input type="text" id="phone" placeholder="(XX) XXXXX-XXXX" required>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="service">Tipo de Serviço <span class="required">*</span></label>
-                            <div id="service-container"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Detalhes da Solicitação <span class="required">*</span></label>
-                        <textarea id="message" name="message" placeholder="Descreva sua solicitação com detalhes"></textarea>
-                    </div>
-                
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="policy" name="policy">
-                        <label for="policy">Eu concordo com a <a href="#">Política de Privacidade</a></label>
-                    </div>
-                
-                    <button type="submit" class="btn-submit">Enviar Cotação</button>
-                </form>
-            </div>
-            
-        </div>
-            
-    </div>
-        
-
-    </main>
-    
+        </div>    
+    </main> 
+      
     <div class="svgfooter">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgb(38, 38, 151)" fill-opacity="1" d="M0,224L60,208C120,192,240,160,360,176C480,192,600,256,720,266.7C840,277,960,235,1080,202.7C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
     </div>
@@ -218,6 +230,8 @@
         </div>
     </footer>
     
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="src/scripts/email.js"></script>
     <script src="src/scripts/dropdown.js"></script>
     <script src="src/scripts/script.js"></script>
 </body>

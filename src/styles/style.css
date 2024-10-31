@@ -79,7 +79,7 @@ nav {
 }
 
 .nav-links .dropdown-content {
-  display: none; /* Inicialmente oculto */
+  display: none;
   position: absolute;
   background-color: #f6f1f1;
   top: 19px;
@@ -102,7 +102,7 @@ nav {
 }
 
 .active {
-  display: block; /* Mostrar o dropdown quando a classe 'active' for adicionada */
+  display: block;
 }
 
 #dropdownBtn {
@@ -127,7 +127,6 @@ i {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-/* Mudança de cor ao passar o mouse sobre o link */
 .dropbtn:hover .arrow {
   border-color: rgb(38, 38, 151);
 }
@@ -362,18 +361,6 @@ footer .final-footer {
   font-size: 150%;
 }
 
-/* Animação de entrada do texto */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
 /* Estilos de animação */
 .experience-text p,
 .experience-text h1, .experience-text .box {
@@ -491,6 +478,7 @@ footer .final-footer {
   border: 0;
 }
 
+/* PRODUTOS */
 
 .info-products {
   position: relative;
@@ -516,7 +504,6 @@ footer .final-footer {
   font-weight: bold;
 }
 
-/* Centralizar a produtosbox no meio da página */
 .produtosbox {
   display: flex;
   justify-content: center;
@@ -527,19 +514,19 @@ footer .final-footer {
   top: 35px;
 }
 
-.box-produtos {
+.produtos-grid {
   display: grid;
   grid-template-columns: repeat(3, 250px); /* Mantém 3 cards por linha */
-  gap: 50px;
+  gap: 60px;
   width: fit-content;
 }
 
 .produto {
-  width: 250px; /* Tamanho fixo do card */
+  width: 270px; /* Tamanho fixo do card */
   height: 370px; /* Tamanho fixo do card */
   background-color: rgb(38, 38, 151);
   font-size: 12px;
-  border-radius: 50px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -547,20 +534,21 @@ footer .final-footer {
 }
 
 .produto:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .produto img {
-  border-radius: 50px 50px 0px 0px;
-  height: 280px;
+  border-radius: 20px 20px 0px 0px;
+  height: 300px;
   width: 100%;
 }
 
 .produto h1 {
   color: #fff;
+  text-transform: uppercase;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
 
 
 .project h1 {
@@ -571,42 +559,74 @@ footer .final-footer {
   font-family: "Montserrat", sans-serif;
 }
 
-/* cotação */
-
+/* cotação form */
 .cotacao {
   width: 100%;
-  height: 80vh;
-  background: rgb(71,71,131);
-  background: linear-gradient(333deg, rgba(71,71,131,1) 0%, rgba(38,38,151,1) 100%);
+  height: 650px;
+  background: rgb(38, 38, 151);
+  border-radius: 50%; /* Curvatura para criar o efeito de onda */
+  position: relative;
+  right: 49%;
+  margin-top: 120px;
+}
+.cotacao-content {
+  position: relative;
+  left: 40%;
+  top: 40px;
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-areas: "form .";
+  grid-template-areas: "form second";
+}
+.secondPartForm {
+  grid-area: second;
+  position: relative;
+  top: 15%;
 }
 
-.cotacao h1 {
-  color: #fff;
+.secondPartForm p {
   position: relative;
-  right: 20%;
+  left: 50px;
+  top: 50px;
+  color: #2d2c2c;
+}
+.secondPartForm h1 {
+  color: #535151;
+  position: relative;
   top: 10%;
+  left: 50px;
+  font-size: 18px;
+}
+.secondPartForm h2 {
+  color: rgb(38, 38, 151);
+  position: relative;
+  left: 50px;
+  top: 10%;
+}
+.secondPartForm hr {
+    position: relative;
+    top: 9%;
+    right: 33.2%;
+    width: 100px;
+    background-color: rgb(38, 38, 151);
+    border: none;
+    height: 4px;
 }
 
 .form {
   grid-area: form;
 }
 
-/* Estilo geral do formulário */
 form {
   background-color: #f0f4f8;
   padding: 20px;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 450px;
   margin: 70px auto;
   font-family: Arial, sans-serif;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: #333;
 }
 
-/* Estilo dos campos de texto */
 .form-group {
   margin-bottom: 15px;
 }
@@ -621,10 +641,10 @@ form {
 }
 
 label {
-  font-weight: bold;
   display: block;
   margin-bottom: 5px;
   color: black; 
+  font-family: ;
 }
 
 .required {
@@ -658,70 +678,109 @@ textarea {
   height: 100px;
 }
 
-/* Checkbox */
-.checkbox-group {
-  display: flex;
-  align-items: center;
-}
-
-.checkbox-group input {
-  margin-right: 10px;
-}
-
-/* Botão de enviar */
 .btn-submit {
-  background: rgb(71,71,131);
-  background: linear-gradient(333deg, rgba(71,71,131,1) 0%, rgba(38,38,151,1) 100%);
+  background-color: rgb(38, 38, 151);
   color: white;
   padding: 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  width: 100%;
+  padding: 10px 20px 10px 20px;
   transition: background-color 0.3s ease;
   margin-top: 10px;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .btn-submit:hover {
-  background-color: #4169e1;
+  background: rgb(25, 25, 95);
 }
 
-/* Links */
-a {
-  color: #262697;
-  text-decoration: none;
+.promo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.form a:hover {
-  text-decoration: underline;
+.radio-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  bottom: 3px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.radio-inner-circle {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(28, 28, 121);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.radio-option.selected .radio-circle {
+  border-color: rgb(28, 28, 121);
+}
+
+.radio-option.selected .radio-inner-circle {
+  opacity: 1;
+}
+
+
+/* ALERT PERSONALIZADO */
+
+.alert {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(28, 28, 121);
+  color: white;
+  padding: 20px;
+  width: calc(100% - 20px);
+  max-width: 300px;
+  border-radius: 5px;
+  z-index: 1000;
+  animation: fadeInZoom 0.5s ease-out forwards;
 }
 
 .alert {
-  display: none; /* Inicialmente escondido */
+  display: none;
   position: fixed;
   top: 10px;
-  left: 88%;
-  transform: translateX(-50%);
-  background-color:  rgb(28, 28, 121); /* Vermelho para erro */
+  right: 10px;
+  background-color:  rgb(28, 28, 121);
   color: white;
-  padding: 20px;
-  width: 299px;
+  padding: 20px 20px 10px;
+  width: 90%;
+  max-width: 300px;
   border-radius: 5px;
   z-index: 1000;
-  animation: fadeIn 0.5s; /* Correção do nome da animação */
-  animation: fadeInZoom 0.5s; /* Chamada para a nova animação */
-}
-
-@keyframes fadeInZoom {
-  0% {
-      opacity: 0;
-      transform: translateX(-50%) scale(0.8); /* Reduzido no início */
-  }
-  100% {
-      opacity: 1;
-      transform: translateX(-50%) scale(1); /* Tamanho normal no final */
-  }
+  animation: fadeIn 0.5s;
+  animation: fadeInZoom 0.5s;
 }
 
 .closebtn {
@@ -737,38 +796,25 @@ a {
 }
 
 .closebtn:hover {
-  color: #000000; /* Cor dourada ao passar o mouse */
+  color: #000000;
 }
 
   #alertMessage {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 25%;
+    text-align: center;
 }
 
 .success-alert {
-  background-color: rgb(38, 151, 38); /* Verde para sucesso */
-}
-
-@keyframes fadeIn { /* Correção do nome da animação */
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+  background-color: rgb(38, 151, 38);
+  text-align: center;
 }
 
 /* Estilo para a barra de progresso */
 .progress-container {
-  width: 339.2px;
+  width: 340px;
   background-color: #ddd;
   margin-top: 10px;
   position: relative;
-  top: 21px;
+  top: 18px;
   right: 19.64px;
   border: none;
   border-bottom-left-radius: 5px;
@@ -776,16 +822,14 @@ a {
 }
 
 .progress-bar {
-  height: 10px;
-  background-color: #abaaaa; /* Verde para sucesso */
-  width: 0%; /* Inicialmente escondido */
-  transition: width 0.1s linear; /* Transição suave ao alterar a largura */
-  margin-top: 40px;
+  height: 13px;
+  background-color: #abaaaa;
+  width: 0%; 
+  transition: width 0.1s linear;
   border: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-
 
   
 /* ANIMAÇÃO */
@@ -804,5 +848,35 @@ a {
   }
   to {
       transform: scale(1);
+  }
+}
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn { /* Correção do nome da animação */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
 }

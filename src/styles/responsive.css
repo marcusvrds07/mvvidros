@@ -180,8 +180,8 @@
       }
   }
 
-  @media (max-width: 870px) {
-    .box-produtos {
+  @media (max-width: 981px) {
+    .produtos-grid {
       grid-template-columns: repeat(2, 1fr); /* 2 cards por linha */
     }
   }
@@ -192,7 +192,7 @@
       padding: 0; /* Remove padding lateral */
     }
   
-    .box-produtos {
+    .produtos-grid {
       display: flex; /* Troca para flexbox em telas pequenas */
       overflow-x: auto; /* Habilita rolagem horizontal */
       gap: 30px; /* Espaçamento entre os cards */
@@ -206,7 +206,7 @@
     }
   
     /* Oculta barra de rolagem em navegadores */
-    .box-produtos::-webkit-scrollbar {
+    .produtos-grid::-webkit-scrollbar {
       display: none;
     }
   

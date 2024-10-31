@@ -79,10 +79,9 @@ let isAlertVisible = false;
 
 // Função para mostrar alerta de erro ou sucesso
 function showAlert(message, type) {
-    // Se já existe um alerta visível, não faça nada
     if (isAlertVisible) return;
 
-    isAlertVisible = true; // Marca que um alerta está visível
+    isAlertVisible = true;
     const alertDiv = document.getElementById(type + 'Alert');
     const alertMessage = document.getElementById(type === 'error' ? 'alertMessage' : 'successMessage');
     
@@ -94,14 +93,14 @@ function showAlert(message, type) {
 
     // Iniciar a barra de progresso correta
     const progressBar = document.getElementById(type === 'error' ? 'progressBar' : 'successProgressBar');
-    progressBar.style.width = "340px"; // Largura inicial da barra
+    progressBar.style.width = "340px";
 
     // Configurações da barra de progresso
-    const totalDuration = 10000; // 10 segundos
-    const intervalTime = 100; // Intervalo de tempo em milissegundos
+    const totalDuration = 10000;
+    const intervalTime = 100;
 
-    let width = 340; // Começa em 350px
-    const decrementAmount = (340 / (totalDuration / intervalTime)); // Decremento proporcional à largura da barra
+    let width = 340;
+    const decrementAmount = (340 / (totalDuration / intervalTime));
 
     // Limpar qualquer intervalo existente antes de iniciar um novo
     if (progressBarInterval) {
@@ -109,15 +108,15 @@ function showAlert(message, type) {
     }
 
     progressBarInterval = setInterval(() => {
-        width -= decrementAmount; // Decrementa a largura da barra
-        if (width < 0) width = 0; // Garantir que não fique menor que 0
-        progressBar.style.width = width + "px"; // Atualiza a largura da barra
+        width -= decrementAmount; 
+        if (width < 0) width = 0; 
+        progressBar.style.width = width + "px";
 
         if (width <= 0) {
-            clearInterval(progressBarInterval); // Para o intervalo quando a barra chega a 0
-            closeAlert(type + 'Alert'); // Fecha o alerta
+            clearInterval(progressBarInterval);
+            closeAlert(type + 'Alert');
         }
-    }, intervalTime); // A cada 100ms
+    }, intervalTime);
 }
 
 // Função para fechar o alerta
@@ -187,20 +186,21 @@ function validateForm(event) {
 
     let name = document.getElementById('name').value.trim();
     let email = document.getElementById('email').value.trim();
-    let service = document.getElementById('service').value;  // Supondo que você tenha botões de rádio
+    let service = document.getElementById('service').value;
     let message = document.getElementById('message').value.trim();
+    let selectedRadio = document.getElementById('selectedRadio').value;
 
     // Validação do nome (ao menos duas palavras)
     if (name.split(' ').length < 2) {
         showAlert("O nome deve conter ao menos duas palavras.", 'error');
-        return; // Prevenir o envio do formulário
+        return; 
     }
 
     // Validação do e-mail (deve conter "@" e ".")
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     if (!emailPattern.test(email)) {
         showAlert("Insira um e-mail válido.", 'error');
-        return; // Prevenir o envio do formulário
+        return;
     }
 
     // Validação do telefone
@@ -209,23 +209,55 @@ function validateForm(event) {
         return; 
     }
 
-    // Validação da seleção do serviço (se houver um input radio)
-    if (service === "") { // Verifica se o valor do select é vazio
+    // Validação da seleção do serviço
+    if (service === "") { 
         showAlert("Selecione um serviço.", 'error');
-        return; // Prevenir o envio do formulário
+        return; 
     }
 
     // Validação da mensagem (10 a 500 caracteres)
     if (message.length < 10 || message.length > 500) {
         showAlert("A mensagem deve ter entre 10 e 500 caracteres.", 'error');
-        return; // Prevenir o envio do formulário
+        return; 
     }
 
-    // Se tudo estiver correto, mostrar alerta de sucesso
-    showAlert("Cotação enviada com sucesso!", 'success');
+    if (selectedRadio === "") { // Verifica se uma opção de rádio foi selecionada
+        showAlert("Selecione uma opção para receber promoções por email.", 'error');
+        return; 
+    }
 
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário
-    // Por exemplo, fazer uma requisição AJAX para enviar os dados
+    const submitButton = document.querySelector(".btn-submit");
+    submitButton.disabled = true;
+    submitButton.innerText = "Enviando...";
+
+    const params = {
+        name: name,
+        email: email,
+        service: service,
+        message: message,
+        promotions: selectedRadio.value
+    };
+
+    emailjs.init("GLeXfcWf8ahHmzLfB"); // Inicialize com sua chave pública
+
+    emailjs.send("service_bxk3pvi", "template_h7inehb", params)
+    .then((response) => {
+        showAlert("Cotação enviada com sucesso!", 'success');
+        document.getElementById("quotationForm").reset();
+        const options = document.querySelectorAll('.radio-option');
+        options.forEach(function(option) {
+        option.classList.remove('selected');  
+    });
+    })
+    .catch((error) => {
+        showAlert("Erro ao enviar a cotação. Tente novamente.", 'error');
+        console.error("Erro:", error);
+    })
+    .finally(() => {
+        submitButton.disabled = false;
+        submitButton.innerText = "Enviar Cotação";
+    });
+
 
     return false; // Prevenir o envio do formulário
 }
@@ -236,6 +268,19 @@ document.getElementById("phone").addEventListener("input", function() {
 });
 
 // Adiciona o evento de clique no botão de enviar
-document.querySelector("button[type='submit']").addEventListener("click", validateForm);
+document.querySelector(".form button[type='submit']").addEventListener("click", validateForm);
 
 
+//radio 
+function selectOption(element) {
+
+    const options = document.querySelectorAll('.radio-option');
+    options.forEach(function(option) {
+        option.classList.remove('selected');  
+    });
+  
+    element.classList.add('selected');
+  
+    document.getElementById('selectedRadio').value = element.getAttribute('data-value');
+  }
+  
