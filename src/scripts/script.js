@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Atualizar o título ao redimensionar a janela
+    // Atualizar o texto do produtos ao redimensionar a janela
     function updateTitle() {
         if (window.innerWidth <= 650) {
             document.querySelector(".info-products h2").innerHTML = "Deslize para explorar nossa lista de produtos exclusiva";
@@ -39,14 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chama a função ao carregar a página
     updateTitle();
     
-    // Adiciona um listener para o evento de redimensionamento
     window.addEventListener('resize', updateTitle);
 });
 
-// Variável para armazenar a referência do intervalo da barra de progresso
 let progressBarInterval = null;
 
-// Função para criar o select de serviços dinamicamente
 function createServiceSelect() {
     const services = [
         { value: "", text: "Selecione um serviço" },
@@ -69,12 +66,9 @@ function createServiceSelect() {
     document.getElementById("service-container").appendChild(select);
 }
 
-// Chamar a função para criar o select quando a página carregar
 window.onload = function () {
     createServiceSelect();
 }
-
-// Variável para rastrear se um alerta está visível
 let isAlertVisible = false;
 
 // Função para mostrar alerta de erro ou sucesso
@@ -126,7 +120,7 @@ function closeAlert(alertId) {
     
     // Limpa e reseta a barra de progresso correta (erro ou sucesso)
     const progressBar = document.getElementById(alertId === 'errorAlert' ? 'progressBar' : 'successProgressBar');
-    progressBar.style.width = "0"; // Resetar a largura da barra
+    progressBar.style.width = "0"; 
 
     // Limpar o intervalo da barra de progresso ao fechar o alerta
     if (progressBarInterval) {
@@ -134,21 +128,18 @@ function closeAlert(alertId) {
         progressBarInterval = null;
     }
 
-    isAlertVisible = false; // Reseta a variável que controla se um alerta está visível
-    document.querySelector("button[type='submit']").disabled = false; // Reabilitar o botão de enviar
+    isAlertVisible = false;
+    document.querySelector("button[type='submit']").disabled = false; 
 }
 
 // Função para formatar o número de telefone enquanto o usuário digita
 function formatPhoneNumber(input) {
-    // Remove caracteres não numéricos
     const numbers = input.value.replace(/\D/g, '');
     
-    // Formatação: (XX) XXXXX-XXXX
     const ddd = numbers.slice(0, 2);
     const firstPart = numbers.slice(2, 7);
     const secondPart = numbers.slice(7, 11);
 
-    // Monta a string formatada
     let formattedNumber = '';
     if (ddd) {
         formattedNumber += `(${ddd}) `;
@@ -169,13 +160,27 @@ function validatePhoneNumber() {
     const phoneError = document.getElementById("phoneError");
     
     // Remove caracteres não numéricos para validação
+
     const numbers = phoneInput.value.replace(/\D/g, '');
 
-    // Verifica se o número tem 11 dígitos (incluindo o DDD)
+    // Verifica se o número tem 11 dígitos
     if (numbers.length !== 11) {
-        return false; // Número inválido
+        return false;
     } else {
-        return true; // Número válido
+        return true;
+    }
+}
+
+function validarEmail(email) {
+    const arrobaIndex = email.indexOf("@");
+    const pontoIndex = email.lastIndexOf(".");
+
+    if (arrobaIndex > 0 && pontoIndex > arrobaIndex + 1 && pontoIndex < email.length - 1) {
+        return true;
+    } 
+    else {
+        showAlert("Insira um e-mail válido.", 'error');
+        return false;
     }
 }
 
@@ -197,9 +202,7 @@ function validateForm(event) {
     }
 
     // Validação do e-mail (deve conter "@" e ".")
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    if (!emailPattern.test(email)) {
-        showAlert("Insira um e-mail válido.", 'error');
+    if (!validarEmail(email)) {
         return;
     }
 
@@ -221,7 +224,8 @@ function validateForm(event) {
         return; 
     }
 
-    if (selectedRadio === "") { // Verifica se uma opção de rádio foi selecionada
+    //verifica se o radio está marcado
+    if (selectedRadio === "") {
         showAlert("Selecione uma opção para receber promoções por email.", 'error');
         return; 
     }

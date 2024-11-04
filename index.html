@@ -11,10 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
     <title>Mv Vidros</title>
 </head>
+
 <body>
     <nav>
         <div class="logo"><img src="src/imagens/mvlogo.png" alt="mvlogo"></div>
@@ -111,6 +110,21 @@
             <h1>PROJETOS</h1>
         </div> -->
 
+        <div id="errorAlert" class="alert">
+            <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
+            <div id="alertMessage"></div>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+    
+        <div id="successAlert" class="alert success-alert">
+            <span class="closebtn" onclick="closeAlert('successAlert')">&times;</span>
+            <span id="successMessage"></span>
+            <div class="progress-container">
+                <div id="successProgressBar" class="progress-bar"></div>
+            </div>
+        </div>
         
         <div class="cotacao">
             <div class="cotacao-content">
@@ -119,21 +133,6 @@
                     <h2>Entre em contato com a Mv Vidros</h2>
                     <hr> 
                     <p>Entre em contato agora mesmo com a MV Vidros e solicite um orçamento personalizado para o seu projeto.<br><br>Preencha o formulário com seus dados e logo entraremos em contato com você.<br><br>Contamos com especialistas em vidros e serralheria para ajudar em todas as etapas do seu projeto, seja qual for a sua necessidade ou dúvida.</p>
-                </div>
-                <div id="errorAlert" class="alert">
-                    <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
-                    <div id="alertMessage"></div>
-                    <div class="progress-container">
-                        <div id="progressBar" class="progress-bar"></div>
-                    </div>
-                </div>
-            
-                <div id="successAlert" class="alert success-alert">
-                    <span class="closebtn" onclick="closeAlert('successAlert')">&times;</span>
-                    <span id="successMessage"></span>
-                    <div class="progress-container">
-                        <div id="successProgressBar" class="progress-bar"></div>
-                    </div>
                 </div>
             
                 <div class="form">
