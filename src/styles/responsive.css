@@ -14,7 +14,8 @@
         padding: 0;
         border-radius: 1rem;
         box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-        pointer-events: none;   
+        pointer-events: none;  
+        visibility: hidden;
       }
       .logo {
         width: 80px;
@@ -48,11 +49,12 @@
     }
   
     .nav-links.active {
-       display: flex; /* Flexível quando ativo */
-        transform: translateX(-50%) translateY(0); /* Volta ao lugar visível */
-        opacity: 1; /* Totalmente visível */
-        pointer-events: all; /* Permite cliques no menu visível */
+       display: flex; 
+        transform: translateX(-50%) translateY(0); 
+        opacity: 1;
+        pointer-events: all;
         padding: 10px 0px 15px 0px;
+        visibility: visible; 
     }
   
     .nav-links .dropdown-content {
@@ -77,9 +79,9 @@
         font-size: 80%;
     }
     .intro-text iframe {
-        width: 100%; /* Largura do iframe 100% */
-        height: 350px; /* Altura do iframe */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+        width: 100%; 
+        height: 350px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
         border: 0;
       }
@@ -91,7 +93,7 @@
         font-size: 40px;
     }
     .intro-text iframe {
-        height: 100%; /* Altura do iframe */
+        height: 100%; 
       }
     .aboutinfo {
         grid-template-columns: 10% 1fr 10%;
@@ -128,17 +130,17 @@
         text-align: center;
     }
     .contact {
-        text-align: center; /* Centraliza o conteúdo */
+        text-align: center; 
       }
       
       .contact ul {
-        list-style: none; /* Remove as bolinhas da lista */
+        list-style: none;
       }
       
       .contact a {
-        text-decoration: none;  /* Remove o sublinhado dos links */
-        color: #fff;            /* Define a cor dos links */
-        display: inline-block;   /* Garante que os links sejam blocos */    
+        text-decoration: none; 
+        color: #fff;
+        display: inline-block;   
       }
       .footer-content li {
          margin-left: 0px;
@@ -215,3 +217,102 @@
       scrollbar-width: none; /* Oculta scrollbar no Firefox */
     }
   }
+
+  /* Estilo responsivo para telas menores */
+@media screen and (max-width: 1240px) {
+  .cotacao {
+    right: 40%;
+  }
+  .cotacao-content {
+    position: relative;
+    left: 90%;
+    transform: translateX(-50%);
+    top: 40px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "form second";
+    padding: 50px;
+  }
+
+  .form {
+    width: 60%;
+    right: 0;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .secondPartForm {
+  line-height: 16px;
+  padding-left: 0;
+  position: relative;
+  left: 10%;
+  top: 15%;
+  }
+  .secondPartForm h1 {
+    font-size: 20px;
+  }
+
+  .secondPartForm h2 {
+    font-size: 18px;
+
+  }
+  .secondPartForm p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 994px) {
+  form {
+    width: 110%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 994px) {
+  .cotacao {
+    background: none;
+
+  }
+  .cotacao-content {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    left: 90%;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+  .form {
+    order: 2;
+    width: 90%;
+    right: 10%;
+  }
+  .secondPartForm {
+    order: 1;
+    width: 100%;
+    position: relative;
+    left: 0;
+  }
+  .svgfooter {
+    margin-top: 1000px;
+  }
+}
+
+@media screen and (max-width: 433px) {
+  
+  #servico select {
+    position: relative;
+    top: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  
+  #servico select {
+    position: relative;
+    top: 0rem;
+  }
+}

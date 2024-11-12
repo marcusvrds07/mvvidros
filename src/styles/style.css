@@ -613,13 +613,15 @@ footer .final-footer {
 
 .form {
   grid-area: form;
+  position: relative;
+  right: 5%;
 }
 
 form {
   background-color: #f0f4f8;
   padding: 20px;
   border-radius: 10px;
-  max-width: 450px;
+  width: 400px;
   margin: 70px auto;
   font-family: Arial, sans-serif;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
