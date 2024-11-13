@@ -1,74 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const menuItems = document.querySelectorAll('.nav-links a');
-
-    // Abrir e fechar o menu hamburguer
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Fechar o menu ao clicar em um item
-    menuItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active') && !item.closest('.dropdown')) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-    });
-
-    // Fechar o menu ao clicar fora do menu ou do hamburger
-    document.addEventListener('click', (event) => {
-        if (!event.target.closest('.nav-links') && !event.target.closest('.hamburger')) {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
-    });
-
-    // Atualizar o texto do produtos ao redimensionar a janela
-    function updateTitle() {
-        if (window.innerWidth <= 650) {
-            document.querySelector(".info-products h2").innerHTML = "Deslize para explorar nossa lista de produtos exclusiva";
-        } else {
-            document.querySelector(".info-products h2").innerHTML = "Explore abaixo nossa lista exclusiva de produtos";
-        }
-    }
-    
-    // Chama a função ao carregar a página
-    updateTitle();
-    
-    window.addEventListener('resize', updateTitle);
-});
-
 let progressBarInterval = null;
-
-function createServiceSelect() {
-    const services = [
-        { value: "", text: "Selecione um serviço" },
-        { value: "instalacao-vidros", text: "Instalação de Vidros" },
-        { value: "manutencao-vidros", text: "Manutenção de Vidros" },
-        { value: "outro", text: "Outro" }
-    ];
-
-    const select = document.createElement("select");
-    select.id = "service";
-    select.name = "service";
-
-    services.forEach(service => {
-        const option = document.createElement("option");
-        option.value = service.value;
-        option.text = service.text;
-        select.appendChild(option);
-    });
-
-    document.getElementById("service-container").appendChild(select);
-}
-
-window.onload = function () {
-    createServiceSelect();
-}
 let isAlertVisible = false;
 
 // Função para mostrar alerta de erro ou sucesso
@@ -82,21 +12,17 @@ function showAlert(message, type) {
     alertMessage.innerText = message;
     alertDiv.style.display = "block";
 
-    // Desabilitar o botão de enviar
     document.querySelector("button[type='submit']").disabled = true;
 
-    // Iniciar a barra de progresso correta
     const progressBar = document.getElementById(type === 'error' ? 'progressBar' : 'successProgressBar');
     progressBar.style.width = "340px";
 
-    // Configurações da barra de progresso
     const totalDuration = 10000;
     const intervalTime = 100;
 
     let width = 340;
     const decrementAmount = (340 / (totalDuration / intervalTime));
 
-    // Limpar qualquer intervalo existente antes de iniciar um novo
     if (progressBarInterval) {
         clearInterval(progressBarInterval);
     }
@@ -113,16 +39,14 @@ function showAlert(message, type) {
     }, intervalTime);
 }
 
-// Função para fechar o alerta
+// Função para fechar o alerta do form
 function closeAlert(alertId) {
     const alertDiv = document.getElementById(alertId);
     alertDiv.style.display = "none";
     
-    // Limpa e reseta a barra de progresso correta (erro ou sucesso)
     const progressBar = document.getElementById(alertId === 'errorAlert' ? 'progressBar' : 'successProgressBar');
     progressBar.style.width = "0"; 
 
-    // Limpar o intervalo da barra de progresso ao fechar o alerta
     if (progressBarInterval) {
         clearInterval(progressBarInterval);
         progressBarInterval = null;
@@ -132,7 +56,7 @@ function closeAlert(alertId) {
     document.querySelector("button[type='submit']").disabled = false; 
 }
 
-// Função para formatar o número de telefone enquanto o usuário digita
+// Função para formatar o número de telefone
 function formatPhoneNumber(input) {
     const numbers = input.value.replace(/\D/g, '');
     
@@ -154,16 +78,16 @@ function formatPhoneNumber(input) {
     input.value = formattedNumber.trim();
 }
 
+// TRABALHO DE LAURO:
+
 // Função de validação do número de telefone
 function validatePhoneNumber() {
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phoneError");
     
-    // Remove caracteres não numéricos para validação
-
+    //expressão regular para substituir letras por nada
     const numbers = phoneInput.value.replace(/\D/g, '');
 
-    // Verifica se o número tem 11 dígitos
     if (numbers.length !== 11) {
         return false;
     } else {
@@ -171,6 +95,7 @@ function validatePhoneNumber() {
     }
 }
 
+//função de validar email
 function validarEmail(email) {
     const arrobaIndex = email.indexOf("@");
     const pontoIndex = email.lastIndexOf(".");
@@ -186,45 +111,44 @@ function validarEmail(email) {
 
 // Função de validação do formulário
 function validateForm(event) {
-    // Prevenir o envio do formulário padrão
     event.preventDefault();
 
     let name = document.getElementById('name').value.trim();
     let email = document.getElementById('email').value.trim();
-    let service = document.getElementById('service').value;
+    let service = document.getElementById('select-text').textContent.trim();
     let message = document.getElementById('message').value.trim();
     let selectedRadio = document.getElementById('selectedRadio').value;
 
-    // Validação do nome (ao menos duas palavras)
+    // Validação do nome
     if (name.split(' ').length < 2) {
         showAlert("O nome deve conter ao menos duas palavras.", 'error');
         return; 
     }
 
-    // Validação do e-mail (deve conter "@" e ".")
+    // Validação do e-mail
     if (!validarEmail(email)) {
         return;
     }
 
     // Validação do telefone
     if (!validatePhoneNumber()) {
-        showAlert("Insira um número de telefone válido com DDD e 9 dígitos.", 'error');
+        showAlert("Insira um número de telefone válido\n com DDD e 9 dígitos.", 'error');
         return; 
     }
 
-    // Validação da seleção do serviço
-    if (service === "") { 
+    //validação do campo select 
+    if (service === "Selecione um serviço") {
         showAlert("Selecione um serviço.", 'error');
-        return; 
+        return;
     }
 
-    // Validação da mensagem (10 a 500 caracteres)
+    // Validação do textarea
     if (message.length < 10 || message.length > 500) {
         showAlert("A mensagem deve ter entre 10 e 500 caracteres.", 'error');
         return; 
     }
 
-    //verifica se o radio está marcado
+    //verifica o radio
     if (selectedRadio === "") {
         showAlert("Selecione uma opção para receber promoções por email.", 'error');
         return; 
@@ -242,7 +166,7 @@ function validateForm(event) {
         promotions: selectedRadio.value
     };
 
-    emailjs.init("GLeXfcWf8ahHmzLfB"); // Inicialize com sua chave pública
+    emailjs.init("GLeXfcWf8ahHmzLfB");
 
     emailjs.send("service_bxk3pvi", "template_h7inehb", params)
     .then((response) => {
@@ -263,19 +187,17 @@ function validateForm(event) {
     });
 
 
-    return false; // Prevenir o envio do formulário
+    return false; //previne envio do form
 }
 
-// Adiciona o evento de input ao campo de telefone
 document.getElementById("phone").addEventListener("input", function() {
     formatPhoneNumber(this);
 });
 
-// Adiciona o evento de clique no botão de enviar
 document.querySelector(".form button[type='submit']").addEventListener("click", validateForm);
 
 
-//radio 
+//radio
 function selectOption(element) {
 
     const options = document.querySelectorAll('.radio-option');
@@ -288,3 +210,45 @@ function selectOption(element) {
     document.getElementById('selectedRadio').value = element.getAttribute('data-value');
   }
   
+// select js
+var customSelect = document.getElementById("customSelect");
+var selectedOption = customSelect.querySelector(".selected-option");
+var selectText = customSelect.querySelector("#select-text");
+var arrow = customSelect.querySelector(".arrow");
+var options = customSelect.querySelector(".options");
+var optionItems = options.querySelectorAll(".option");
+
+selectedOption.addEventListener("click", function () {
+  options.classList.toggle("open");
+  arrow.classList.toggle("rotate");
+});
+
+optionItems.forEach(function (item) {
+  item.addEventListener("click", function (event) {
+    selectText.firstChild.textContent = event.target.textContent;
+  });   
+});
+
+document.addEventListener("click", function (event) {
+  if (!customSelect.contains(event.target)) {
+    options.classList.remove("open");
+    arrow.classList.remove("rotate");
+  }
+});
+
+document.querySelectorAll('.accordion-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+        const accordionItem = header.parentElement;
+        const isActive = accordionItem.classList.contains('active');
+
+        // Fecha todos os itens
+        document.querySelectorAll('.accordion-item').forEach(function(item) {
+            item.classList.remove('active');
+        });
+
+        // Se o item não estava ativo, abre-o
+        if (!isActive) {
+            accordionItem.classList.add('active');
+        }
+    });
+});

@@ -188,33 +188,32 @@
     }
   }
   
-  /* Responsividade para telas menores que 800px */
+
   @media (max-width: 650px) {
     .produtosbox {
-      padding: 0; /* Remove padding lateral */
+      padding: 0; 
     }
   
     .produtos-grid {
-      display: flex; /* Troca para flexbox em telas pequenas */
-      overflow-x: auto; /* Habilita rolagem horizontal */
-      gap: 30px; /* Espaçamento entre os cards */
-      white-space: nowrap; /* Impede quebra de linha */
-      width: 100%; /* Garante que ocupe toda a largura */
-      padding: 40px; /* Adiciona espaçamento interno */
+      display: flex;
+      overflow-x: auto;
+      gap: 30px; 
+      white-space: nowrap;
+      width: 100%;
+      padding: 40px;
     }
   
     .produto {
-      flex: 0 0 250px; /* Mantém o tamanho fixo dos produtos */
+      flex: 0 0 250px; 
     }
   
-    /* Oculta barra de rolagem em navegadores */
     .produtos-grid::-webkit-scrollbar {
       display: none;
     }
   
     .box-produtos {
-      -ms-overflow-style: none; /* Oculta scrollbar no IE/Edge */
-      scrollbar-width: none; /* Oculta scrollbar no Firefox */
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   }
 
@@ -264,13 +263,17 @@
 }
 
 @media screen and (max-width: 994px) {
+  #accordion-title {
+    font-size: 4vh;
+  }
+  #accordion {
+    margin-top: 18rem;
+  }
   form {
     width: 110%;
     margin: 0 auto;
+    background-color: #f0f4f8;
   }
-}
-
-@media screen and (max-width: 994px) {
   .cotacao {
     background: none;
 
@@ -282,13 +285,13 @@
     align-items: center;
     gap: 20px;
     left: 90%;
-    background-color: #f2f2f2;
+    background-color: #e3e1e1;
     border-radius: 10px;
   }
   .form {
     order: 2;
     width: 90%;
-    right: 10%;
+    right: 7%;
   }
   .secondPartForm {
     order: 1;
@@ -297,21 +300,40 @@
     left: 0;
   }
   .svgfooter {
-    margin-top: 1000px;
+    margin-top: 60px;
   }
 }
 
 @media screen and (max-width: 433px) {
-  
-  #servico select {
+  #accordion {
+    margin-top: 20rem;
+  }
+  #customSelect {
     position: relative;
     top: 1.1rem;
   }
 }
+@media screen and (max-width: 385px) {
+  #accordion-title {
+    font-size: 3vh;
+  }
+  #accordion {
+    margin-top: 23rem;
+  }
+}
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 385px) {
+  #accordion-title {
+    font-size: 3vh;
+  }
+  #accordion {
+    margin-top: 23rem;
+  }
+}
+
+@media screen and (max-width: 309px) {
   
-  #servico select {
+  #customSelect {
     position: relative;
     top: 0rem;
   }

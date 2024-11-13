@@ -156,8 +156,19 @@
                             </div>
             
                             <div class="form-group" id="servico">
-                                <label for="service">Tipo de Serviço <span class="required">*</span></label>
-                                <div id="service-container"></div>
+                                <label for="servico">Tipo de Serviço</label>
+                                <div class="custom-select" id="customSelect">
+                                    <div class="selected-option">
+                                        <span id="select-text">Selecione um serviço</span> 
+                                        <i class="arrow down"></i>
+                                        <div class="options">
+                                          <div class="option highlight">Selecione um serviço</div>
+                                          <div class="option">Instalação de Vidros</div>
+                                          <div class="option">Manutenção de Vidros</div>
+                                          <div class="option">Serralheria</div>
+                                        </div>
+                                    </div>
+                                  </div>
                             </div>
                         </div>
             
@@ -185,7 +196,43 @@
                     </form>
                 </div>
             </div>
-        </div>    
+        </div>
+
+        <section id="accordion">
+            <h1 id="accordion-title">PERGUNTAS FREQUENTES</h1>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Qual é o prazo de entrega para os serviços?</span>
+                        <span class="arrow-acord"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>O prazo de entrega depende do tipo de serviço solicitado e da complexidade do projeto. Em média, nossos serviços de instalação de vidro temperado são concluídos em até 15 dias úteis após a confirmação do pedido. Já os serviços de serralheria e esquadrias podem levar de 15 a 30 dias úteis, dependendo da demanda e especificações do cliente. Fornecemos prazos estimados no momento da contratação e nos esforçamos para cumprir rigorosamente.</p>
+                    </div>
+                </div>
+            
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Vocês fazem atendimento residencial e comercial?</span>
+                        <span class="arrow-acord"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Sim, atendemos tanto clientes residenciais quanto comerciais. Oferecemos soluções personalizadas para cada tipo de projeto, incluindo instalação de box de banheiro, envidraçamento de sacadas, portas automáticas de vidro, corrimões de inox, e estruturas metálicas para comércio. Nosso objetivo é atender às necessidades específicas de cada cliente com eficiência e qualidade.</p>
+                    </div>
+                </div>
+            
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Como é feito o orçamento e a visita técnica?</span>
+                        <span class="arrow-acord"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>O orçamento pode ser solicitado de forma rápida através do nosso site ou pelo WhatsApp. Para um cálculo preciso, realizamos uma visita técnica gratuita, onde nossos especialistas avaliam o local, tiram medidas e discutem as melhores opções para o seu projeto. Após a visita, apresentamos um orçamento detalhado e transparente, sem compromisso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main> 
     
       
@@ -231,8 +278,8 @@
     </footer>
     
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="src/scripts/email.js"></script>
     <script src="src/scripts/dropdown.js"></script>
+    <script src="src/scripts/hamburguer.js"></script>
     <script src="src/scripts/script.js"></script>
 </body>
 </html>
