@@ -392,7 +392,6 @@ footer .final-footer {
   font-weight: 400;
   text-align: center;
 }
-
 .experience-text .box {
   background-color: rgb(38, 38, 151);
   margin: 0 auto;
@@ -871,7 +870,7 @@ textarea {
   text-align: center;
 }
 .accordion {
-  width: 80%;
+  width: 100%;
   margin: 20px auto;
   border-radius: 8px;
   overflow: hidden;

@@ -133,17 +133,17 @@
         text-align: center; 
       }
       
-      .contact ul {
-        list-style: none;
-      }
+    .contact ul {
+      list-style: none;
+    }
       
-      .contact a {
-        text-decoration: none; 
-        color: #fff;
-        display: inline-block;   
-      }
-      .footer-content li {
-         margin-left: 0px;
+    .contact a {
+      text-decoration: none; 
+      color: #fff;
+      display: inline-block;   
+    }
+    .footer-content li {
+      margin-left: 0px;
     }
     .contact ul li a{
         margin-left: 0px;
@@ -291,7 +291,7 @@
   .form {
     order: 2;
     width: 90%;
-    right: 7%;
+    right: 3rem;
   }
   .secondPartForm {
     order: 1;
@@ -301,6 +301,27 @@
   }
   .svgfooter {
     margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .form {
+    right: 2.8rem;
+  }
+}
+@media screen and (max-width: 660px) {
+  .form {
+    right: 2.5rem;
+  }
+}
+@media screen and (max-width: 660px) {
+  .form {
+    right: 2.3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .form {
+    right: 2.1rem;
   }
 }
 

@@ -1,3 +1,12 @@
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 let progressBarInterval = null;
 let isAlertVisible = false;
 
@@ -56,27 +65,6 @@ function closeAlert(alertId) {
     document.querySelector("button[type='submit']").disabled = false; 
 }
 
-// Função para formatar o número de telefone
-function formatPhoneNumber(input) {
-    const numbers = input.value.replace(/\D/g, '');
-    
-    const ddd = numbers.slice(0, 2);
-    const firstPart = numbers.slice(2, 7);
-    const secondPart = numbers.slice(7, 11);
-
-    let formattedNumber = '';
-    if (ddd) {
-        formattedNumber += `(${ddd}) `;
-    }
-    if (firstPart) {
-        formattedNumber += `${firstPart}`;
-    }
-    if (secondPart) {
-        formattedNumber += `-${secondPart}`;
-    }
-
-    input.value = formattedNumber.trim();
-}
 
 // TRABALHO DE LAURO:
 

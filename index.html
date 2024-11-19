@@ -24,8 +24,8 @@
                 <a class="dropbtn" id="dropdownBtn">Produtos <i class="arrow down"></i></a>
                 <div class="dropdown-content" id="dropdownContent">
                     <a href="#" id="space">Janelas</a>
-                    <a href="src/sub-paginas/box.html">Box Temperado</a>
-                    <a href="#">Serviço 3</a>
+                    <a href="#">Boxes</a>
+                    <a href="#">Espelhos</a>
                 </div>
             </li>
             <li id="border"><a href="#">Contatos</a></li>
@@ -47,7 +47,9 @@
                     <p id="t1">BEM-VINDO(A) À MV VIDROS</p>
                     <h1>MAIS DE 10 ANOS DE EXPERIÊNCIA<hr></h1>
                     <p>Já realizamos obras de médio e alto padrão, sempre priorizando a qualidade<br> dos serviços e a satisfação dos nossos clientes.</p>
-                    <div class="box">SOLICITE UM ORÇAMENTO</div>
+                    <a href="#form">
+                        <div class="box">SOLICITE UM ORÇAMENTO</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -78,7 +80,7 @@
             <div class="produtosbox">
                 <div class="produtos-grid">
                     <div class="produto">
-                        <a href="src/sub-paginas/box.html"><img src="src/imagens/box-capa.jpg" alt="capa do box"></a>
+                        <a href="#"><img src="src/imagens/box-capa.jpg" alt="capa do box"></a>
                         <div class="produto-info"><h1>Boxes</h1></div>
                     </div>
                     <div class="produto">
@@ -126,7 +128,7 @@
             </div>
         </div>
         
-        <div class="cotacao">
+        <div class="cotacao" id="form">
             <div class="cotacao-content">
                 <div class="secondPartForm">
                     <h1>Estamos preparados para te atender</h1>
@@ -152,7 +154,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Número de Telefone <span class="required">*</span></label>
-                                <input type="text" id="phone" placeholder="(XX) XXXXX-XXXX" required>
+                                <input type="text" id="phone" placeholder="(XX) XXXXX-XXXX" data-mask="(00) 00000-0000">
                             </div>
             
                             <div class="form-group" id="servico">
@@ -248,9 +250,9 @@
                     <div class="company"><h1>MV VIDROS</h1><p>possuímos uma equipe de profissionais altamente especializada pronta para te atender.</p></div>
                     <div class="products"><h1>PRODUTOS</h1>
                     <ul>
-                        <li><a href="https://www.teste.com.br">Janelas</a></li>
-                        <li><a href="#">Box</a></li>
-                        <li><a href="#">Serviço 3</a></li>
+                        <li><a href="#">Janelas</a></li>
+                        <li><a href="#">Boxes</a></li>
+                        <li><a href="#">Espelhos</a></li>
                     </ul></div>
                     <div class="contact">
                         <h1>CONTATOS</h1>
@@ -277,6 +279,8 @@
         </div>
     </footer>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="src/scripts/dropdown.js"></script>
     <script src="src/scripts/hamburguer.js"></script>
