@@ -72,9 +72,6 @@ function closeAlert(alertId) {
 function validatePhoneNumber() {
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phoneError");
-    
-    //expressão regular para substituir letras por nada
-    const numbers = phoneInput.value.replace(/\D/g, '');
 
     if (numbers.length !== 11) {
         return false;
@@ -175,7 +172,7 @@ function validateForm(event) {
     });
 
 
-    return false; //previne envio do form
+    return false;
 }
 
 document.getElementById("phone").addEventListener("input", function() {
@@ -229,12 +226,10 @@ document.querySelectorAll('.accordion-header').forEach(function(header) {
         const accordionItem = header.parentElement;
         const isActive = accordionItem.classList.contains('active');
 
-        // Fecha todos os itens
         document.querySelectorAll('.accordion-item').forEach(function(item) {
             item.classList.remove('active');
         });
 
-        // Se o item não estava ativo, abre-o
         if (!isActive) {
             accordionItem.classList.add('active');
         }
