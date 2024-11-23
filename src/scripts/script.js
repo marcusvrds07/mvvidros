@@ -75,8 +75,6 @@ function validatePhoneNumber() {
     
     const numbers = phoneInput.value;
 
-    console.log(numbers.length);
-
     if (numbers.length !== 15) {
         return false;
     } else {
