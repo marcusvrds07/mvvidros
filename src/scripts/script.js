@@ -72,8 +72,12 @@ function closeAlert(alertId) {
 function validatePhoneNumber() {
     const phoneInput = document.getElementById("phone");
     const phoneError = document.getElementById("phoneError");
+    
+    const numbers = phoneInput.value;
 
-    if (numbers.length !== 11) {
+    console.log(numbers.length);
+
+    if (numbers.length !== 15) {
         return false;
     } else {
         return true;
@@ -174,10 +178,6 @@ function validateForm(event) {
 
     return false;
 }
-
-document.getElementById("phone").addEventListener("input", function() {
-    formatPhoneNumber(this);
-});
 
 document.querySelector(".form button[type='submit']").addEventListener("click", validateForm);
 
